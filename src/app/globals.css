@@ -1,26 +1,92 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-navy-950: #060a14;
+  --color-navy-900: #0a0e1a;
+  --color-navy-800: #0f1629;
+  --color-navy-700: #151d35;
+  --color-navy-600: #1a2542;
+  --color-neon-cyan: #00e5ff;
+  --color-neon-blue: #2979ff;
+  --color-neon-purple: #7c4dff;
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  background-color: var(--color-navy-950);
+  color: #e2e8f0;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-navy-950);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-neon-cyan);
+  border-radius: 3px;
+}
+
+::selection {
+  background: rgba(0, 229, 255, 0.3);
+  color: #fff;
+}
+
+.glass {
+  background: rgba(15, 22, 41, 0.5);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(0, 229, 255, 0.08);
+}
+
+.glow-sm {
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.08), 0 0 30px rgba(0, 229, 255, 0.04);
+}
+
+.glow-md {
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.12), 0 0 40px rgba(0, 229, 255, 0.06);
+}
+
+.glow-border {
+  border: 1px solid rgba(0, 229, 255, 0.15);
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.06), inset 0 0 15px rgba(0, 229, 255, 0.03);
+}
+
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(0,229,255,0.3), rgba(124,77,255,0.15), transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }

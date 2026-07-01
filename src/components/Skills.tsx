@@ -1,0 +1,116 @@
+"use client";
+
+import { motion } from "framer-motion";
+
+const skillCategories = [
+  {
+    title: "Python Core",
+    skills: [
+      { name: "Python", level: "Advanced" },
+      { name: "FastAPI", level: "Advanced" },
+      { name: "Flask", level: "Advanced" },
+      { name: "Django", level: "APIs Focus" },
+    ],
+  },
+  {
+    title: "Backend Skills",
+    skills: [
+      { name: "REST APIs", level: "Expert" },
+      { name: "Authentication", level: "JWT/OAuth" },
+      { name: "Microservices", level: "Intermediate" },
+      { name: "Webhooks", level: "Advanced" },
+    ],
+  },
+  {
+    title: "Data & Automation",
+    skills: [
+      { name: "Web Scraping", level: "Advanced" },
+      { name: "Automation Scripts", level: "Advanced" },
+      { name: "Data Pipelines", level: "Intermediate" },
+      { name: "Task Scheduling", level: "Celery/Cron" },
+    ],
+  },
+  {
+    title: "Databases",
+    skills: [
+      { name: "PostgreSQL", level: "Advanced" },
+      { name: "MongoDB", level: "Intermediate" },
+      { name: "Redis", level: "Basics" },
+      { name: "SQLAlchemy", level: "Advanced" },
+    ],
+  },
+  {
+    title: "DevOps & Tools",
+    skills: [
+      { name: "Git & GitHub", level: "Advanced" },
+      { name: "Docker", level: "Intermediate" },
+      { name: "Linux Server", level: "Intermediate" },
+      { name: "CI/CD", level: "Basics" },
+    ],
+  },
+];
+
+export default function Skills() {
+  return (
+    <section id="skills" className="relative py-24 sm:py-32 lg:py-36">
+      <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-900/50 to-navy-950" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,229,255,0.03),transparent_70%)]" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14 sm:mb-16"
+        >
+          <span className="text-neon-cyan text-xs font-mono tracking-[0.2em] uppercase">
+            // Technical Skills
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-4 tracking-tight">
+            Tools &{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-purple">
+              Technologies
+            </span>
+          </h2>
+          <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
+            Focused on the Python ecosystem and backend technologies that power
+            production systems.
+          </p>
+        </motion.div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+          {skillCategories.map((category, catIdx) => (
+            <motion.div
+              key={category.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: catIdx * 0.1 }}
+              className="glass rounded-2xl p-6 hover:border-neon-cyan/25 hover:shadow-[0_0_25px_rgba(0,229,255,0.06)] transition-all duration-500 group"
+            >
+              <h3 className="text-white font-semibold mb-5 flex items-center gap-2.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-neon-cyan shadow-[0_0_6px_rgba(0,229,255,0.5)]" />
+                {category.title}
+              </h3>
+
+              <div className="space-y-2">
+                {category.skills.map((skill) => (
+                  <div
+                    key={skill.name}
+                    className="flex items-center justify-between py-2.5 px-3.5 rounded-lg bg-white/[0.02] hover:bg-neon-cyan/[0.04] transition-colors duration-300"
+                  >
+                    <span className="text-gray-300 text-sm">{skill.name}</span>
+                    <span className="text-[11px] text-neon-cyan/60 font-mono tracking-wide">
+                      {skill.level}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
