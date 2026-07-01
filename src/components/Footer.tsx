@@ -2,10 +2,10 @@
 
 export default function Footer() {
   return (
-    <footer className="relative py-8 border-t border-neon-cyan/10">
+    <footer className="relative py-8 transition-colors duration-300" style={{ borderTop: "1px solid var(--border-subtle)", background: "var(--bg-primary)" }}>
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="text-sm text-gray-500">
+          <div className="text-sm" style={{ color: "var(--text-muted)" }}>
             &copy; {new Date().getFullYear()} Umar. Built with Python mindset.
           </div>
           <div className="flex items-center gap-6">
@@ -13,7 +13,8 @@ export default function Footer() {
               href="https://github.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-500 hover:text-neon-cyan transition-colors"
+              className="transition-colors duration-300 hover:text-brand-light"
+              style={{ color: "var(--text-muted)" }}
               aria-label="GitHub"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -24,7 +25,8 @@ export default function Footer() {
               href="https://linkedin.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-500 hover:text-neon-cyan transition-colors"
+              className="transition-colors duration-300 hover:text-brand-light"
+              style={{ color: "var(--text-muted)" }}
               aria-label="LinkedIn"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

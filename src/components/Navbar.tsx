@@ -27,15 +27,13 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "glass glow-sm"
-          : "bg-transparent"
+        scrolled ? "glass glow-sm" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
         <div className="flex items-center justify-between h-16 sm:h-[72px]">
-          <a href="#" className="text-xl font-heading font-bold text-white tracking-tight">
-            &lt;Dev<span className="text-neon-cyan">/&gt;</span>
+          <a href="#" className="text-xl font-heading font-bold tracking-tight" style={{ color: "var(--text-primary)" }}>
+            &lt;Dev<span className="text-brand">/&gt;</span>
           </a>
 
           <div className="hidden md:flex items-center gap-8">
@@ -43,14 +41,15 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-[13px] uppercase tracking-widest text-gray-400 hover:text-neon-cyan transition-colors duration-300"
+                className="text-[13px] uppercase tracking-widest transition-colors duration-300 hover:text-brand-light"
+                style={{ color: "var(--text-muted)" }}
               >
                 {link.name}
               </a>
             ))}
             <a
               href="#contact"
-              className="relative px-7 py-2.5 text-sm font-semibold rounded-full bg-gradient-to-r from-neon-cyan to-neon-blue text-navy-950 hover:shadow-lg hover:shadow-neon-cyan/30 transition-all duration-300"
+              className="relative px-7 py-2.5 text-sm font-semibold rounded-full bg-gradient-to-r from-brand to-accent-blue text-white hover:shadow-[0_0_25px_rgba(60,123,148,0.35)] transition-all duration-300"
             >
               Hire Me
             </a>
@@ -58,7 +57,8 @@ export default function Navbar() {
 
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden text-gray-400 hover:text-neon-cyan p-2"
+            className="md:hidden p-2 hover:text-brand-light"
+            style={{ color: "var(--text-muted)" }}
             aria-label="Toggle menu"
           >
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -76,7 +76,8 @@ export default function Navbar() {
         <motion.div
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
-          className="md:hidden glass border-t border-neon-cyan/10"
+          className="md:hidden glass"
+          style={{ borderTop: "1px solid var(--glass-border)" }}
         >
           <div className="px-6 py-6 space-y-5">
             {navLinks.map((link) => (
@@ -84,7 +85,8 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="block text-base text-gray-300 hover:text-neon-cyan transition-colors"
+                className="block text-base hover:text-brand-light transition-colors"
+                style={{ color: "var(--text-secondary)" }}
               >
                 {link.name}
               </a>
@@ -92,7 +94,7 @@ export default function Navbar() {
             <a
               href="#contact"
               onClick={() => setMobileOpen(false)}
-              className="block px-6 py-3 text-sm text-center font-semibold rounded-full bg-gradient-to-r from-neon-cyan to-neon-blue text-navy-950"
+              className="block px-6 py-3 text-sm text-center font-semibold rounded-full bg-gradient-to-r from-brand to-accent-blue text-white"
             >
               Hire Me
             </a>
