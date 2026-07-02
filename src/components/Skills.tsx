@@ -4,48 +4,30 @@ import { motion } from "framer-motion";
 
 const skillCategories = [
   {
-    title: "Python Core",
+    title: "Python & AI",
     skills: [
-      { name: "Python", level: "Advanced" },
-      { name: "FastAPI", level: "Advanced" },
-      { name: "Flask", level: "Advanced" },
-      { name: "Django", level: "APIs Focus" },
+      { name: "Python", level: "Learning" },
+      { name: "AI / ML Basics", level: "Learning" },
+      { name: "FastAPI", level: "Beginner" },
+      { name: "Flask", level: "Beginner" },
     ],
   },
   {
-    title: "Backend Skills",
+    title: "Backend Basics",
     skills: [
-      { name: "REST APIs", level: "Expert" },
-      { name: "Authentication", level: "JWT/OAuth" },
-      { name: "Microservices", level: "Intermediate" },
-      { name: "Webhooks", level: "Advanced" },
+      { name: "REST APIs", level: "Learning" },
+      { name: "Authentication", level: "Basics" },
+      { name: "Database Design", level: "Learning" },
+      { name: "Web Scraping", level: "Beginner" },
     ],
   },
   {
-    title: "Data & Automation",
+    title: "Tools & Platforms",
     skills: [
-      { name: "Web Scraping", level: "Advanced" },
-      { name: "Automation Scripts", level: "Advanced" },
-      { name: "Data Pipelines", level: "Intermediate" },
-      { name: "Task Scheduling", level: "Celery/Cron" },
-    ],
-  },
-  {
-    title: "Databases",
-    skills: [
-      { name: "PostgreSQL", level: "Advanced" },
-      { name: "MongoDB", level: "Intermediate" },
-      { name: "Redis", level: "Basics" },
-      { name: "SQLAlchemy", level: "Advanced" },
-    ],
-  },
-  {
-    title: "DevOps & Tools",
-    skills: [
-      { name: "Git & GitHub", level: "Advanced" },
-      { name: "Docker", level: "Intermediate" },
-      { name: "Linux Server", level: "Intermediate" },
-      { name: "CI/CD", level: "Basics" },
+      { name: "Git & GitHub", level: "Comfortable" },
+      { name: "VS Code", level: "Daily Use" },
+      { name: "Linux Basics", level: "Learning" },
+      { name: "Vercel / Hosting", level: "Beginner" },
     ],
   },
 ];
@@ -58,13 +40,13 @@ export default function Skills() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.6 }} className="text-center mb-14 sm:mb-16">
-          <span className="text-xs font-mono tracking-[0.2em] uppercase" style={{ color: "var(--text-accent)" }}>// Technical Skills</span>
+          <span className="text-xs font-mono tracking-[0.2em] uppercase" style={{ color: "var(--text-accent)" }}>// What I&apos;m Learning</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 tracking-tight" style={{ color: "var(--text-primary)" }}>
             Tools &{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent-purple">Technologies</span>
           </h2>
           <p className="mt-4 max-w-2xl mx-auto" style={{ color: "var(--text-muted)" }}>
-            Focused on the Python ecosystem and backend technologies that power production systems.
+            Currently learning — getting better every day. These are the tools I&apos;m working with.
           </p>
         </motion.div>
 

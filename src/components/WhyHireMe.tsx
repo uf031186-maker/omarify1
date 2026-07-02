@@ -3,12 +3,12 @@
 import { motion } from "framer-motion";
 
 const reasons = [
-  { title: "Clean, Scalable Code", description: "Every project follows SOLID principles, proper documentation, and production-ready standards." },
-  { title: "Fast Backend Development", description: "Rapid prototyping to production deployment — without cutting corners on quality." },
-  { title: "Strong Debugging Ability", description: "Systematic approach to finding and fixing issues, even in complex distributed systems." },
-  { title: "Real System Thinking", description: "I architect complete systems, not isolated scripts — database to API to deployment." },
-  { title: "Long-Term Support Mindset", description: "Code written for maintainability, with clear structure so future developers can extend it." },
-  { title: "Clear Communication", description: "Regular updates, technical documentation, and straightforward project discussions." },
+  { title: "Zero Risk — Pay Only If Satisfied", description: "If my work doesn't meet your expectations, you don't have to pay me. Simple as that." },
+  { title: "Hungry to Learn & Prove Myself", description: "I'm not here for easy tasks. Give me a challenge and watch me grow into it." },
+  { title: "Available 24/7", description: "I'm flexible with time zones and always reachable. Your project is my priority." },
+  { title: "AI & Python Skills Growing Fast", description: "Currently learning Python, AI, automation, and backend — building real projects every day." },
+  { title: "Honest About My Level", description: "I won't pretend to know what I don't. But I'll work twice as hard to learn what's needed." },
+  { title: "Clear Communication", description: "Regular updates, no ghosting, and straightforward discussions about progress." },
 ];
 
 export default function WhyHireMe() {
@@ -21,8 +21,8 @@ export default function WhyHireMe() {
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.6 }} className="text-center mb-14 sm:mb-16">
           <span className="text-xs font-mono tracking-[0.2em] uppercase" style={{ color: "var(--text-accent)" }}>// Why Work With Me</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 tracking-tight" style={{ color: "var(--text-primary)" }}>
-            Built for{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent-blue">Production</span>
+            Why Give Me a{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent-blue">Chance?</span>
           </h2>
         </motion.div>
 

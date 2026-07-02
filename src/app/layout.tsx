@@ -15,22 +15,20 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Umar — Python Backend Developer | Omarify",
+  title: "Umar — Aspiring Python & AI Developer | Omarify",
   description:
-    "I build scalable APIs, automation systems, and production-ready backend architectures. Python backend developer specializing in FastAPI, Flask, and Django.",
+    "Learning Python, AI, and backend development. Give me a chance — if my work isn't good enough, you don't have to pay me.",
   keywords: [
-    "Python Developer",
-    "Backend Engineer",
-    "FastAPI",
-    "Flask",
-    "Django",
-    "API Development",
-    "Automation",
+    "Python Learner",
+    "AI Developer",
+    "Backend Development",
+    "Freelancer",
+    "Hire Developer",
   ],
   openGraph: {
-    title: "Umar — Python Backend Developer",
+    title: "Umar — Aspiring Python & AI Developer",
     description:
-      "Scalable APIs, automation systems, and production-ready backend architectures.",
+      "Learning Python, AI, and backend development. Ready to work hard and prove myself.",
     url: "https://omarify.com",
     type: "website",
   },

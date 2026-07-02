@@ -51,7 +51,7 @@ export default function Navbar() {
               href="#contact"
               className="relative px-7 py-2.5 text-sm font-semibold rounded-full bg-gradient-to-r from-brand to-accent-blue text-white hover:shadow-[0_0_25px_rgba(60,123,148,0.35)] transition-all duration-300"
             >
-              Hire Me
+              Work With Me
             </a>
           </div>
 
@@ -96,7 +96,7 @@ export default function Navbar() {
               onClick={() => setMobileOpen(false)}
               className="block px-6 py-3 text-sm text-center font-semibold rounded-full bg-gradient-to-r from-brand to-accent-blue text-white"
             >
-              Hire Me
+              Work With Me
             </a>
           </div>
         </motion.div>

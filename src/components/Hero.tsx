@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const roles = [
-  "Python Developer",
-  "Backend Engineer",
-  "API Architect",
-  "Automation Developer",
+  "Learning Python",
+  "Building Projects",
+  "Exploring AI",
+  "Open to Opportunities",
 ];
 
 const codeRainChars = [
@@ -89,18 +89,18 @@ export default function Hero() {
               style={{ color: "var(--text-accent)" }}
             >
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.6)]" />
-              Available for hire
+              Open to opportunities
             </motion.div>
 
             <h1 className="text-4xl sm:text-5xl md:text-[3.5rem] lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-6 tracking-tight" style={{ color: "var(--text-primary)" }}>
               Hi, I&apos;m Umar —{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand via-accent-blue to-accent-purple">
-                Python Backend Developer
+                Aspiring Python &amp; AI Developer
               </span>
             </h1>
 
             <p className="text-base sm:text-lg mb-8 max-w-lg leading-relaxed" style={{ color: "var(--text-muted)" }}>
-              I build scalable APIs, automation systems, and production-ready backend architectures.
+              I&apos;m learning Python, AI, and backend development. Give me a chance — if my work isn&apos;t good enough, you don&apos;t have to pay me.
             </p>
 
             <div className="h-9 mb-10 flex items-center gap-3 px-4 py-2 rounded-lg w-fit" style={{ background: "var(--bg-input)", border: "1px solid var(--input-border)" }}>
@@ -115,7 +115,7 @@ export default function Hero() {
 
             <div className="flex flex-wrap gap-4">
               <a href="#contact" className="group relative px-9 py-3.5 rounded-full bg-gradient-to-r from-brand to-accent-blue text-white font-bold text-sm tracking-wide hover:shadow-[0_0_30px_rgba(60,123,148,0.35)] transition-all duration-300">
-                Hire Me
+                Work With Me
                 <div className="absolute inset-0 rounded-full bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </a>
               <a href="#projects" className="px-9 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-300 hover:shadow-[0_0_20px_rgba(60,123,148,0.15)]" style={{ border: "1px solid var(--border-hover)", color: "var(--text-accent)" }}>
