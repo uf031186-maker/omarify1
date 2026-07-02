@@ -28,9 +28,9 @@ export default function WhyHireMe() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {reasons.map((reason, i) => (
-            <motion.div key={reason.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.5, delay: i * 0.1 }} className="flex items-start gap-4 p-5 rounded-xl glass hover:border-brand/20 hover:shadow-[0_0_25px_rgba(78,154,184,0.06)] transition-all duration-500 group">
+            <motion.div key={reason.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.5, delay: i * 0.1 }} className="card flex items-start gap-4 p-5 rounded-xl group">
               <div className="mt-0.5 flex-shrink-0">
-                <div className="w-6 h-6 rounded-full flex items-center justify-center" style={{ background: "var(--badge-bg)", boxShadow: "0 0 8px rgba(78,154,184,0.15)" }}>
+                <div className="card-icon !p-1.5 !rounded-full flex items-center justify-center" style={{ boxShadow: "0 0 8px rgba(78,154,184,0.15)" }}>
                   <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" style={{ color: "var(--text-accent)" }}>
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                   </svg>

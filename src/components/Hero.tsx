@@ -134,11 +134,10 @@ export default function Hero() {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <a href="#contact" className="group relative px-9 py-3.5 rounded-full bg-gradient-to-r from-brand to-accent-blue text-white font-semibold text-[13px] uppercase tracking-[0.05em] hover:shadow-[0_0_30px_rgba(78,154,184,0.35)] transition-all duration-300">
+              <a href="#contact" className="btn-primary">
                 Work With Me
-                <div className="absolute inset-0 rounded-full bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </a>
-              <a href="#projects" className="px-9 py-3.5 rounded-full font-semibold text-[13px] uppercase tracking-[0.05em] transition-all duration-300 hover:shadow-[0_0_20px_rgba(78,154,184,0.15)]" style={{ border: "1px solid var(--border-hover)", color: "var(--text-accent)" }}>
+              <a href="#projects" className="btn-outline">
                 View Projects
               </a>
             </div>

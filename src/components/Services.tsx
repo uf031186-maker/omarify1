@@ -29,8 +29,8 @@ export default function Services() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {services.map((service, i) => (
-            <motion.div key={service.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.5, delay: i * 0.1 }} className="glass rounded-2xl p-5 sm:p-6 hover:border-brand/20 hover:shadow-[0_0_30px_rgba(78,154,184,0.06)] transition-all duration-500 group cursor-default">
-              <div className="p-3 rounded-xl w-fit mb-5 transition-all duration-300" style={{ background: "var(--badge-bg)", color: "var(--text-accent)" }}>
+            <motion.div key={service.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.5, delay: i * 0.1 }} className="card rounded-2xl p-5 sm:p-6 group cursor-default">
+              <div className="card-icon w-fit mb-5">
                 {service.icon}
               </div>
               <h3 className="font-semibold text-base sm:text-lg mb-3" style={{ color: "var(--text-primary)" }}>{service.title}</h3>

@@ -28,7 +28,7 @@ export default function Projects() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {projects.map((project, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.5, delay: i * 0.1 }} className="glass rounded-2xl overflow-hidden group transition-all duration-500">
+            <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.5, delay: i * 0.1 }} className="card rounded-2xl overflow-hidden group">
               <div className="relative h-40 sm:h-44 overflow-hidden flex items-center justify-center" style={{ background: "linear-gradient(135deg, var(--bg-card), var(--bg-card-hover))" }}>
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(78,154,184,0.06),transparent_70%)]" />
                 <motion.span
@@ -45,7 +45,7 @@ export default function Projects() {
                 <p className="text-sm leading-relaxed mb-4" style={{ color: "var(--text-muted)" }}>{project.description}</p>
                 <div className="flex flex-wrap gap-1.5">
                   {project.stack.map((tech) => (
-                    <span key={tech} className="text-[11px] px-2.5 py-1 rounded-full font-mono" style={{ background: "var(--badge-bg)", color: "var(--text-accent)", border: "1px solid var(--input-border)", opacity: 0.8 }}>{tech}</span>
+                    <span key={tech} className="tech-badge font-mono">{tech}</span>
                   ))}
                 </div>
               </div>

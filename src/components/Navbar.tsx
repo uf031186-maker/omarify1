@@ -41,7 +41,7 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-[12px] uppercase tracking-[0.15em] font-medium transition-colors duration-300 hover:text-brand-light"
+                className="nav-link text-[12px] uppercase tracking-[0.15em] font-medium hover:text-brand-light"
                 style={{ color: "var(--text-muted)" }}
               >
                 {link.name}
@@ -49,7 +49,7 @@ export default function Navbar() {
             ))}
             <a
               href="#contact"
-              className="relative px-7 py-2.5 text-[12px] uppercase tracking-[0.05em] font-semibold rounded-full bg-gradient-to-r from-brand to-accent-blue text-white hover:shadow-[0_0_25px_rgba(78,154,184,0.35)] transition-all duration-300"
+              className="btn-primary !py-2.5 !px-7"
             >
               Work With Me
             </a>
@@ -94,7 +94,7 @@ export default function Navbar() {
             <a
               href="#contact"
               onClick={() => setMobileOpen(false)}
-              className="block px-6 py-3 text-sm text-center font-semibold rounded-full bg-gradient-to-r from-brand to-accent-blue text-white"
+              className="btn-primary !block text-center text-sm"
             >
               Work With Me
             </a>

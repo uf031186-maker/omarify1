@@ -77,9 +77,9 @@ export default function About() {
 
           <div className="space-y-4">
             {strengths.map((item, i) => (
-              <motion.div key={item.title} initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.5, delay: 0.1 + i * 0.15 }} className="glass rounded-xl p-5 hover:border-brand/20 hover:shadow-[0_0_25px_rgba(78,154,184,0.06)] transition-all duration-500 group">
+              <motion.div key={item.title} initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.5, delay: 0.1 + i * 0.15 }} className="card rounded-xl p-5 group">
                 <div className="flex items-start gap-4">
-                  <div className="p-2.5 rounded-lg bg-gradient-to-br from-brand/15 to-accent-blue/10 text-brand-light group-hover:from-brand/25 group-hover:to-accent-blue/15 transition-all">
+                  <div className="card-icon !rounded-lg">
                     {item.icon}
                   </div>
                   <div>

@@ -13,7 +13,7 @@ export default function Footer() {
               href="https://github.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors duration-300 hover:text-brand-light"
+              className="social-icon"
               style={{ color: "var(--text-muted)" }}
               aria-label="GitHub"
             >
@@ -25,7 +25,7 @@ export default function Footer() {
               href="https://linkedin.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors duration-300 hover:text-brand-light"
+              className="social-icon"
               style={{ color: "var(--text-muted)" }}
               aria-label="LinkedIn"
             >

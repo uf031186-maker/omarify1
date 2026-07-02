@@ -52,14 +52,14 @@ export default function Skills() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {skillCategories.map((category, catIdx) => (
-            <motion.div key={category.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.5, delay: catIdx * 0.1 }} className="glass rounded-2xl p-6 hover:border-brand/20 hover:shadow-[0_0_30px_rgba(78,154,184,0.06)] transition-all duration-500 group">
+            <motion.div key={category.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.5, delay: catIdx * 0.1 }} className="card rounded-2xl p-6 group">
               <h3 className="font-semibold mb-5 flex items-center gap-2.5" style={{ color: "var(--text-primary)" }}>
                 <span className="w-1.5 h-1.5 rounded-full bg-brand shadow-[0_0_6px_rgba(78,154,184,0.5)]" />
                 {category.title}
               </h3>
               <div className="space-y-2">
                 {category.skills.map((skill) => (
-                  <div key={skill.name} className="flex items-center justify-between py-2.5 px-3.5 rounded-lg transition-colors duration-300" style={{ background: "var(--badge-bg)" }}>
+                  <div key={skill.name} className="skill-pill">
                     <span className="text-sm" style={{ color: "var(--text-secondary)" }}>{skill.name}</span>
                     <span className="text-[11px] font-mono tracking-wide" style={{ color: "var(--text-accent)", opacity: 0.7 }}>{skill.level}</span>
                   </div>
