@@ -133,14 +133,6 @@ export default function Hero() {
               <motion.span animate={{ opacity: [1, 0] }} transition={{ duration: 0.8, repeat: Infinity }} className="text-sm" style={{ color: "var(--text-accent)" }}>█</motion.span>
             </div>
 
-            <div className="flex flex-wrap gap-4">
-              <a href="#contact" className="btn-outline">
-                Get in Touch
-              </a>
-              <a href="#projects" className="btn-outline">
-                View Projects
-              </a>
-            </div>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="hidden lg:block relative">

@@ -40,8 +40,8 @@ export default function About() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.6 }} className="text-center mb-10 sm:mb-16">
-          <span className="text-xs font-mono tracking-[0.2em] uppercase" style={{ color: "var(--text-accent)" }}>// About Me</span>
-          <h2 className="text-[1.75rem] sm:text-4xl lg:text-5xl font-extrabold mt-5 tracking-[-0.03em]" style={{ color: "var(--text-primary)" }}>
+          <span className="text-xs font-mono tracking-[0.2em] uppercase" style={{ color: "var(--text-accent)" }}>About</span>
+          <h2 className="text-[1.75rem] sm:text-4xl lg:text-5xl font-extrabold mt-4 tracking-[-0.03em]" style={{ color: "var(--text-primary)" }}>
             Learning Every Day.{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent-blue">Growing Fast.</span>
           </h2>
