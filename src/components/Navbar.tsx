@@ -32,7 +32,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
         <div className="flex items-center justify-between h-16 sm:h-[72px]">
-          <a href="#" className="text-xl font-heading font-bold tracking-tight" style={{ color: "var(--text-primary)" }}>
+          <a href="#" className="text-xl font-heading font-bold tracking-[-0.02em]" style={{ color: "var(--text-primary)" }}>
             &lt;Dev<span className="text-brand">/&gt;</span>
           </a>
 
@@ -41,7 +41,7 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-[13px] uppercase tracking-widest transition-colors duration-300 hover:text-brand-light"
+                className="text-[12px] uppercase tracking-[0.15em] font-medium transition-colors duration-300 hover:text-brand-light"
                 style={{ color: "var(--text-muted)" }}
               >
                 {link.name}
@@ -49,7 +49,7 @@ export default function Navbar() {
             ))}
             <a
               href="#contact"
-              className="relative px-7 py-2.5 text-sm font-semibold rounded-full bg-gradient-to-r from-brand to-accent-blue text-white hover:shadow-[0_0_25px_rgba(60,123,148,0.35)] transition-all duration-300"
+              className="relative px-7 py-2.5 text-[12px] uppercase tracking-[0.05em] font-semibold rounded-full bg-gradient-to-r from-brand to-accent-blue text-white hover:shadow-[0_0_25px_rgba(78,154,184,0.35)] transition-all duration-300"
             >
               Work With Me
             </a>

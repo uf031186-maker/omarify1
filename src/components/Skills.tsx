@@ -36,7 +36,7 @@ export default function Skills() {
   return (
     <section id="skills" className="relative py-16 sm:py-24 lg:py-36">
       <div className="absolute inset-0 transition-colors duration-300" style={{ background: "var(--bg-secondary)" }} />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(60,123,148,0.03),transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(78,154,184,0.03),transparent_70%)]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.6 }} className="text-center mb-14 sm:mb-16">
@@ -52,9 +52,9 @@ export default function Skills() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {skillCategories.map((category, catIdx) => (
-            <motion.div key={category.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.5, delay: catIdx * 0.1 }} className="glass rounded-2xl p-6 hover:border-brand/20 hover:shadow-[0_0_30px_rgba(60,123,148,0.06)] transition-all duration-500 group">
+            <motion.div key={category.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.5, delay: catIdx * 0.1 }} className="glass rounded-2xl p-6 hover:border-brand/20 hover:shadow-[0_0_30px_rgba(78,154,184,0.06)] transition-all duration-500 group">
               <h3 className="font-semibold mb-5 flex items-center gap-2.5" style={{ color: "var(--text-primary)" }}>
-                <span className="w-1.5 h-1.5 rounded-full bg-brand shadow-[0_0_6px_rgba(60,123,148,0.5)]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-brand shadow-[0_0_6px_rgba(78,154,184,0.5)]" />
                 {category.title}
               </h3>
               <div className="space-y-2">

@@ -40,9 +40,9 @@ export default function Hero() {
   return (
     <section className="relative pb-10 pt-24 sm:min-h-svh sm:pb-0 sm:pt-0 flex items-start sm:items-center overflow-hidden">
       <div className="absolute inset-0 transition-colors duration-300" style={{ background: "var(--bg-primary)" }} />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(60,123,148,0.12),transparent)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_80%_60%,rgba(139,126,200,0.06),transparent)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_30%_at_20%_80%,rgba(74,144,217,0.05),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(78,154,184,0.15),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_80%_60%,rgba(157,143,216,0.07),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_30%_at_20%_80%,rgba(91,159,230,0.06),transparent)]" />
 
       <div
         className="absolute inset-0 opacity-[0.03]"
@@ -92,7 +92,7 @@ export default function Hero() {
               Open to opportunities
             </motion.div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-[3.5rem] lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-6 tracking-tight" style={{ color: "var(--text-primary)" }}>
+            <h1 className="text-[2.5rem] sm:text-5xl md:text-[3.5rem] lg:text-6xl xl:text-7xl font-extrabold leading-[1.08] mb-7 tracking-[-0.03em]" style={{ color: "var(--text-primary)" }}>
               {["Hi,", "I'm", "Umar", "—"].map((word, i) => (
                 <motion.span
                   key={i}
@@ -112,14 +112,14 @@ export default function Hero() {
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ duration: 0.5, delay: 0.9 + i * 0.15 }}
                   className="inline-block mr-[0.3em] text-transparent bg-clip-text animate-gradient-shift"
-                  style={{ backgroundImage: "linear-gradient(90deg, #3C7B94, #4A90D9, #8B7EC8, #67B8D6, #3C7B94)", backgroundSize: "200% 100%" }}
+                  style={{ backgroundImage: "linear-gradient(90deg, #4E9AB8, #5B9FE6, #9D8FD8, #7DD3E8, #4E9AB8)", backgroundSize: "200% 100%" }}
                 >
                   {word}
                 </motion.span>
               ))}
             </h1>
 
-            <p className="text-base sm:text-lg mb-8 max-w-lg leading-relaxed" style={{ color: "var(--text-muted)" }}>
+            <p className="text-[15px] sm:text-lg mb-8 max-w-lg leading-[1.75] font-normal" style={{ color: "var(--text-muted)" }}>
               I&apos;m learning Python, AI, and backend development. Give me a chance — if my work isn&apos;t good enough, you don&apos;t have to pay me.
             </p>
 
@@ -134,11 +134,11 @@ export default function Hero() {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <a href="#contact" className="group relative px-9 py-3.5 rounded-full bg-gradient-to-r from-brand to-accent-blue text-white font-bold text-sm tracking-wide hover:shadow-[0_0_30px_rgba(60,123,148,0.35)] transition-all duration-300">
+              <a href="#contact" className="group relative px-9 py-3.5 rounded-full bg-gradient-to-r from-brand to-accent-blue text-white font-semibold text-[13px] uppercase tracking-[0.05em] hover:shadow-[0_0_30px_rgba(78,154,184,0.35)] transition-all duration-300">
                 Work With Me
                 <div className="absolute inset-0 rounded-full bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </a>
-              <a href="#projects" className="px-9 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-300 hover:shadow-[0_0_20px_rgba(60,123,148,0.15)]" style={{ border: "1px solid var(--border-hover)", color: "var(--text-accent)" }}>
+              <a href="#projects" className="px-9 py-3.5 rounded-full font-semibold text-[13px] uppercase tracking-[0.05em] transition-all duration-300 hover:shadow-[0_0_20px_rgba(78,154,184,0.15)]" style={{ border: "1px solid var(--border-hover)", color: "var(--text-accent)" }}>
                 View Projects
               </a>
             </div>

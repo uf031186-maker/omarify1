@@ -18,7 +18,7 @@ export default function Contact() {
   return (
     <section id="contact" className="relative py-16 sm:py-24 lg:py-36">
       <div className="absolute inset-0 transition-colors duration-300" style={{ background: "var(--bg-secondary)" }} />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(60,123,148,0.04),transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(78,154,184,0.04),transparent_60%)]" />
 
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[
@@ -88,7 +88,7 @@ export default function Contact() {
                   }}
                   onFocus={(e) => {
                     e.target.style.borderColor = "var(--input-focus)";
-                    e.target.style.boxShadow = "0 0 0 3px rgba(60,123,148,0.1)";
+                    e.target.style.boxShadow = "0 0 0 3px rgba(78,154,184,0.1)";
                   }}
                   onBlur={(e) => {
                     e.target.style.borderColor = "var(--input-border)";
@@ -115,7 +115,7 @@ export default function Contact() {
                   }}
                   onFocus={(e) => {
                     e.target.style.borderColor = "var(--input-focus)";
-                    e.target.style.boxShadow = "0 0 0 3px rgba(60,123,148,0.1)";
+                    e.target.style.boxShadow = "0 0 0 3px rgba(78,154,184,0.1)";
                   }}
                   onBlur={(e) => {
                     e.target.style.borderColor = "var(--input-border)";
@@ -142,7 +142,7 @@ export default function Contact() {
                   }}
                   onFocus={(e) => {
                     e.target.style.borderColor = "var(--input-focus)";
-                    e.target.style.boxShadow = "0 0 0 3px rgba(60,123,148,0.1)";
+                    e.target.style.boxShadow = "0 0 0 3px rgba(78,154,184,0.1)";
                   }}
                   onBlur={(e) => {
                     e.target.style.borderColor = "var(--input-border)";
@@ -153,7 +153,7 @@ export default function Contact() {
               </div>
               <button
                 type="submit"
-                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-brand to-accent-blue text-white font-bold hover:shadow-[0_0_30px_rgba(60,123,148,0.3)] transition-all duration-300 text-sm sm:text-base"
+                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-brand to-accent-blue text-white font-bold hover:shadow-[0_0_30px_rgba(78,154,184,0.3)] transition-all duration-300 text-sm sm:text-base"
               >
                 {submitted ? "Message Sent!" : "Send Message"}
               </button>

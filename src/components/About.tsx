@@ -36,12 +36,12 @@ export default function About() {
   return (
     <section id="about" className="relative py-16 sm:py-24 lg:py-36">
       <div className="absolute inset-0 transition-colors duration-300" style={{ background: "var(--bg-primary)" }} />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(60,123,148,0.04),transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(78,154,184,0.04),transparent_60%)]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.6 }} className="text-center mb-10 sm:mb-16">
           <span className="text-xs font-mono tracking-[0.2em] uppercase" style={{ color: "var(--text-accent)" }}>// About Me</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 tracking-tight" style={{ color: "var(--text-primary)" }}>
+          <h2 className="text-[1.75rem] sm:text-4xl lg:text-5xl font-extrabold mt-5 tracking-[-0.03em]" style={{ color: "var(--text-primary)" }}>
             Learning Every Day.{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent-blue">Growing Fast.</span>
           </h2>
@@ -49,7 +49,7 @@ export default function About() {
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.6, delay: 0.2 }}>
-            <p className="text-base sm:text-lg leading-relaxed mb-6" style={{ color: "var(--text-muted)" }}>
+            <p className="text-[15px] sm:text-[17px] leading-[1.8] mb-6" style={{ color: "var(--text-muted)" }}>
               I&apos;m a self-taught developer learning{" "}
               <span className="font-medium" style={{ color: "var(--text-primary)" }}>Python</span>,{" "}
               <span className="font-medium" style={{ color: "var(--text-primary)" }}>AI &amp; Machine Learning</span>,{" "}
@@ -57,7 +57,7 @@ export default function About() {
               <span className="font-medium" style={{ color: "var(--text-primary)" }}>automation</span>.{" "}
               I&apos;m hungry to learn and ready to prove myself.
             </p>
-            <p className="leading-relaxed mb-10" style={{ color: "var(--text-muted)" }}>
+            <p className="text-[15px] sm:text-base leading-[1.8] mb-10" style={{ color: "var(--text-muted)" }}>
               I believe in learning by doing. Give me a project and I&apos;ll give it my all — if the result isn&apos;t good enough, you don&apos;t have to pay me. That&apos;s how confident I am in my work ethic.
             </p>
 
@@ -68,8 +68,8 @@ export default function About() {
                 { value: "0", label: "Excuses" },
               ].map((stat, i) => (
                 <div key={i} className="text-center">
-                  <div className="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-brand-light to-brand">{stat.value}</div>
-                  <div className="text-[11px] uppercase tracking-widest mt-1.5" style={{ color: "var(--text-muted)" }}>{stat.label}</div>
+                  <div className="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-brand-light to-brand tracking-[-0.02em]">{stat.value}</div>
+                  <div className="text-[10px] uppercase tracking-[0.2em] font-medium mt-2" style={{ color: "var(--text-muted)" }}>{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -77,14 +77,14 @@ export default function About() {
 
           <div className="space-y-4">
             {strengths.map((item, i) => (
-              <motion.div key={item.title} initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.5, delay: 0.1 + i * 0.15 }} className="glass rounded-xl p-5 hover:border-brand/20 hover:shadow-[0_0_25px_rgba(60,123,148,0.06)] transition-all duration-500 group">
+              <motion.div key={item.title} initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.5, delay: 0.1 + i * 0.15 }} className="glass rounded-xl p-5 hover:border-brand/20 hover:shadow-[0_0_25px_rgba(78,154,184,0.06)] transition-all duration-500 group">
                 <div className="flex items-start gap-4">
                   <div className="p-2.5 rounded-lg bg-gradient-to-br from-brand/15 to-accent-blue/10 text-brand-light group-hover:from-brand/25 group-hover:to-accent-blue/15 transition-all">
                     {item.icon}
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1.5 text-[15px]" style={{ color: "var(--text-primary)" }}>{item.title}</h3>
-                    <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>{item.description}</p>
+                    <h3 className="font-semibold mb-1.5 text-[15px] tracking-[-0.01em]" style={{ color: "var(--text-primary)" }}>{item.title}</h3>
+                    <p className="text-[13px] sm:text-sm leading-[1.7]" style={{ color: "var(--text-muted)" }}>{item.description}</p>
                   </div>
                 </div>
               </motion.div>

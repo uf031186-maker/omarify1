@@ -12,7 +12,7 @@ export default function Projects() {
   return (
     <section id="projects" className="relative py-16 sm:py-24 lg:py-36">
       <div className="absolute inset-0 transition-colors duration-300" style={{ background: "var(--bg-primary)" }} />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(139,126,200,0.03),transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(157,143,216,0.03),transparent_60%)]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.6 }} className="text-center mb-10 sm:mb-16">
@@ -30,7 +30,7 @@ export default function Projects() {
           {projects.map((project, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.5, delay: i * 0.1 }} className="glass rounded-2xl overflow-hidden group transition-all duration-500">
               <div className="relative h-40 sm:h-44 overflow-hidden flex items-center justify-center" style={{ background: "linear-gradient(135deg, var(--bg-card), var(--bg-card-hover))" }}>
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(60,123,148,0.06),transparent_70%)]" />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(78,154,184,0.06),transparent_70%)]" />
                 <motion.span
                   className="text-5xl relative z-10"
                   animate={{ y: [0, -8, 0] }}
