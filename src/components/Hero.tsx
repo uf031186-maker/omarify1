@@ -134,8 +134,8 @@ export default function Hero() {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <a href="#contact" className="btn-primary">
-                Work With Me
+              <a href="#contact" className="btn-outline">
+                Get in Touch
               </a>
               <a href="#projects" className="btn-outline">
                 View Projects

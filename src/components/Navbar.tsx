@@ -49,9 +49,9 @@ export default function Navbar() {
             ))}
             <a
               href="#contact"
-              className="btn-primary !py-2.5 !px-7"
+              className="btn-outline !py-2.5 !px-7"
             >
-              Work With Me
+              Get in Touch
             </a>
           </div>
 
@@ -94,9 +94,9 @@ export default function Navbar() {
             <a
               href="#contact"
               onClick={() => setMobileOpen(false)}
-              className="btn-primary !block text-center text-sm"
+              className="btn-outline !block text-center text-sm"
             >
-              Work With Me
+              Get in Touch
             </a>
           </div>
         </motion.div>
