@@ -13,7 +13,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="relative py-24 sm:py-32 lg:py-36">
+    <section id="services" className="relative py-16 sm:py-24 lg:py-36">
       <div className="absolute inset-0 transition-colors duration-300" style={{ background: "var(--bg-secondary)" }} />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(60,123,148,0.03),transparent_70%)]" />
 

@@ -16,7 +16,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-24 sm:py-32 lg:py-36">
+    <section id="contact" className="relative py-16 sm:py-24 lg:py-36">
       <div className="absolute inset-0 transition-colors duration-300" style={{ background: "var(--bg-secondary)" }} />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(60,123,148,0.04),transparent_60%)]" />
 

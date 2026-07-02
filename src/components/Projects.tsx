@@ -13,7 +13,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative py-24 sm:py-32 lg:py-36">
+    <section id="projects" className="relative py-16 sm:py-24 lg:py-36">
       <div className="absolute inset-0 transition-colors duration-300" style={{ background: "var(--bg-primary)" }} />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(139,126,200,0.03),transparent_60%)]" />
 

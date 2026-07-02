@@ -38,7 +38,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-svh flex items-start sm:items-center overflow-hidden">
+    <section className="relative pb-10 pt-24 sm:min-h-svh sm:pb-0 sm:pt-0 flex items-start sm:items-center overflow-hidden">
       <div className="absolute inset-0 transition-colors duration-300" style={{ background: "var(--bg-primary)" }} />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(60,123,148,0.12),transparent)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_80%_60%,rgba(139,126,200,0.06),transparent)]" />
@@ -78,7 +78,7 @@ export default function Hero() {
         transition={{ duration: 9, repeat: Infinity }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 w-full pt-20 pb-12 sm:py-0">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 w-full sm:py-0">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
             <motion.div
@@ -162,7 +162,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-32" style={{ background: "linear-gradient(to top, var(--bg-primary), transparent)" }} />
+      <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-32" style={{ background: "linear-gradient(to top, var(--bg-primary), transparent)" }} />
     </section>
   );
 }
