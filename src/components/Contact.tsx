@@ -16,7 +16,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-16 sm:py-24 lg:py-36">
+    <section id="contact" className="relative py-12 sm:py-16 lg:py-24">
       <div className="absolute inset-0 transition-colors duration-300" style={{ background: "var(--bg-secondary)" }} />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(78,154,184,0.04),transparent_60%)]" />
 
@@ -48,7 +48,7 @@ export default function Contact() {
           className="text-center mb-14 sm:mb-16"
         >
           <span className="text-xs font-mono tracking-[0.2em] uppercase" style={{ color: "var(--text-accent)" }}>
-            // Get in Touch
+            Get in Touch
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 tracking-tight" style={{ color: "var(--text-primary)" }}>
             Let&apos;s Build Your{" "}

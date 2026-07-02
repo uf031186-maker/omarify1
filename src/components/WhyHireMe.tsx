@@ -13,13 +13,13 @@ const reasons = [
 
 export default function WhyHireMe() {
   return (
-    <section className="relative py-16 sm:py-24 lg:py-36">
+    <section className="relative py-12 sm:py-16 lg:py-24">
       <div className="absolute inset-0 transition-colors duration-300" style={{ background: "var(--bg-primary)" }} />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(157,143,216,0.03),transparent_60%)]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.6 }} className="text-center mb-14 sm:mb-16">
-          <span className="text-xs font-mono tracking-[0.2em] uppercase" style={{ color: "var(--text-accent)" }}>// Why Work With Me</span>
+          <span className="text-xs font-mono tracking-[0.2em] uppercase" style={{ color: "var(--text-accent)" }}>Why Work With Me</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 tracking-tight" style={{ color: "var(--text-primary)" }}>
             Why Give Me a{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent-blue">Chance?</span>
