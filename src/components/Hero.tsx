@@ -93,10 +93,30 @@ export default function Hero() {
             </motion.div>
 
             <h1 className="text-4xl sm:text-5xl md:text-[3.5rem] lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-6 tracking-tight" style={{ color: "var(--text-primary)" }}>
-              Hi, I&apos;m Umar —{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand via-accent-blue to-accent-purple">
-                Aspiring Python &amp; AI Developer
-              </span>
+              {["Hi,", "I'm", "Umar", "—"].map((word, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{ duration: 0.5, delay: 0.3 + i * 0.15 }}
+                  className="inline-block mr-[0.3em]"
+                >
+                  {word}
+                </motion.span>
+              ))}{" "}
+              <br className="sm:hidden" />
+              {["Aspiring", "Python", "&", "AI", "Developer"].map((word, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{ duration: 0.5, delay: 0.9 + i * 0.15 }}
+                  className="inline-block mr-[0.3em] text-transparent bg-clip-text animate-gradient-shift"
+                  style={{ backgroundImage: "linear-gradient(90deg, #3C7B94, #4A90D9, #8B7EC8, #67B8D6, #3C7B94)", backgroundSize: "200% 100%" }}
+                >
+                  {word}
+                </motion.span>
+              ))}
             </h1>
 
             <p className="text-base sm:text-lg mb-8 max-w-lg leading-relaxed" style={{ color: "var(--text-muted)" }}>
