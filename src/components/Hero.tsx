@@ -163,9 +163,9 @@ export default function Hero() {
   return (
     <section className="relative pb-10 pt-24 sm:min-h-svh sm:pb-0 sm:pt-0 flex items-start sm:items-center overflow-hidden">
       <div className="absolute inset-0 transition-colors duration-300" style={{ background: "var(--bg-primary)" }} />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(0,113,227,0.15),transparent)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_80%_60%,rgba(41,151,255,0.07),transparent)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_30%_at_20%_80%,rgba(191,90,242,0.06),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(249,124,17,0.15),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_80%_60%,rgba(255,178,94,0.07),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_30%_at_20%_80%,rgba(255,142,60,0.06),transparent)]" />
 
       <div
         className="absolute inset-0 opacity-[0.03]"
@@ -235,7 +235,7 @@ export default function Hero() {
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ duration: 0.5, delay: 0.9 + i * 0.15 }}
                   className="inline-block mr-[0.3em] text-transparent bg-clip-text animate-gradient-shift"
-                  style={{ backgroundImage: "linear-gradient(90deg, #2997ff, #5e5ce6, #bf5af2, #64b5ff, #2997ff)", backgroundSize: "200% 100%" }}
+                  style={{ backgroundImage: "linear-gradient(90deg, #FF8E3C, #F97C11, #FFB25E, #FFA94D, #FF8E3C)", backgroundSize: "200% 100%" }}
                 >
                   {word}
                 </motion.span>

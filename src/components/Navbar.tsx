@@ -24,7 +24,7 @@ function TopBar() {
     <div
       className="relative flex items-center justify-center h-8 overflow-hidden"
       style={{
-        background: "linear-gradient(90deg, rgba(0,113,227,0.12), rgba(41,151,255,0.1), rgba(0,113,227,0.12))",
+        background: "linear-gradient(90deg, rgba(249,124,17,0.12), rgba(255,178,94,0.1), rgba(249,124,17,0.12))",
         borderBottom: "1px solid var(--border-subtle)",
       }}
     >
