@@ -13,7 +13,7 @@ export default function Services() {
   return (
     <section id="services" className="relative py-12 sm:py-16 lg:py-24">
       <div className="absolute inset-0 transition-colors duration-300" style={{ background: "var(--bg-secondary)" }} />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(78,154,184,0.03),transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(124,92,252,0.03),transparent_70%)]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.6 }} className="text-center mb-14 sm:mb-16">

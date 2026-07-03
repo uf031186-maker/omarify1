@@ -28,7 +28,7 @@ function highlightCode(text: string) {
   const builtins = ["FastAPI", "create_engine", "UserSchema", "UserService"];
 
   if (text.trimStart().startsWith("#"))
-    return <span className="text-[#4a4a55]">{text}</span>;
+    return <span className="text-[#6B6870]">{text}</span>;
 
   const parts = text.split(/("[^"]*"|'[^']*'|\s+)/g).filter(Boolean);
   return parts.map((token, i) => {
@@ -41,12 +41,12 @@ function highlightCode(text: string) {
     if (builtins.includes(trimmed.split(".")[0]) || builtins.includes(trimmed))
       return <span key={i} className="text-brand-light">{token}</span>;
     if (trimmed.startsWith('"') || trimmed.startsWith("'"))
-      return <span key={i} className="text-[#e9c46a]">{token}</span>;
+      return <span key={i} className="text-[#6DE4C0]">{token}</span>;
     if (["fastapi", "sqlalchemy"].includes(trimmed))
       return <span key={i} className="text-brand-light">{token}</span>;
     if (trimmed === "=" || trimmed === ":")
       return <span key={i} className="text-brand-light">{token}</span>;
-    return <span key={i} className="text-[#f0f0f3]">{token}</span>;
+    return <span key={i} className="text-[#F0EDE6]">{token}</span>;
   });
 }
 
@@ -163,9 +163,9 @@ export default function Hero() {
   return (
     <section className="relative pb-10 pt-24 sm:min-h-svh sm:pb-0 sm:pt-0 flex items-start sm:items-center overflow-hidden">
       <div className="absolute inset-0 transition-colors duration-300" style={{ background: "var(--bg-primary)" }} />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(78,154,184,0.15),transparent)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_80%_60%,rgba(157,143,216,0.07),transparent)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_30%_at_20%_80%,rgba(91,159,230,0.06),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(124,92,252,0.15),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_80%_60%,rgba(54,216,183,0.07),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_30%_at_20%_80%,rgba(155,130,255,0.06),transparent)]" />
 
       <div
         className="absolute inset-0 opacity-[0.03]"
@@ -235,7 +235,7 @@ export default function Hero() {
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ duration: 0.5, delay: 0.9 + i * 0.15 }}
                   className="inline-block mr-[0.3em] text-transparent bg-clip-text animate-gradient-shift"
-                  style={{ backgroundImage: "linear-gradient(90deg, #4E9AB8, #5B9FE6, #9D8FD8, #7DD3E8, #4E9AB8)", backgroundSize: "200% 100%" }}
+                  style={{ backgroundImage: "linear-gradient(90deg, #7C5CFC, #36D8B7, #9B82FF, #B5A6FF, #7C5CFC)", backgroundSize: "200% 100%" }}
                 >
                   {word}
                 </motion.span>
@@ -260,7 +260,7 @@ export default function Hero() {
 
           <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="hidden lg:block relative">
             <div className="rounded-2xl gradient-border glow-md overflow-hidden" style={{ background: "var(--code-bg)" }}>
-              <div className="flex items-center gap-2 px-5 py-3.5" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)", background: "rgba(20,21,25,0.4)" }}>
+              <div className="flex items-center gap-2 px-5 py-3.5" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)", background: "rgba(26,29,43,0.4)" }}>
                 <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
                 <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
                 <div className="w-3 h-3 rounded-full bg-[#28c840]" />
