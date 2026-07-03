@@ -18,7 +18,7 @@ export default function Contact() {
   return (
     <section id="contact" className="relative py-12 sm:py-16 lg:py-24">
       <div className="absolute inset-0 transition-colors duration-300" style={{ background: "var(--bg-secondary)" }} />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(124,92,252,0.04),transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,113,227,0.04),transparent_60%)]" />
 
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[

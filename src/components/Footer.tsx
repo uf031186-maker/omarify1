@@ -2,7 +2,7 @@
 
 export default function Footer() {
   return (
-    <footer className="relative py-8 transition-colors duration-300" style={{ borderTop: "1px solid var(--border-subtle)", background: "var(--bg-primary)" }}>
+    <footer className="theme-light relative py-8 transition-colors duration-300" style={{ borderTop: "1px solid var(--border-subtle)", background: "var(--bg-secondary)" }}>
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-sm" style={{ color: "var(--text-muted)" }}>
