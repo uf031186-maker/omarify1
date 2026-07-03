@@ -1,7 +1,130 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+
+const codeLines = [
+  { text: "from fastapi import FastAPI", delay: 0 },
+  { text: "from sqlalchemy import create_engine", delay: 0 },
+  { text: "", delay: 0 },
+  { text: "# Initialize production app", delay: 0 },
+  { text: 'app = FastAPI(title="Production API")', delay: 0 },
+  { text: "", delay: 0 },
+  { text: '@app.get("/api/v1/health")', delay: 0 },
+  { text: "async def health_check():", delay: 0 },
+  { text: '    return {"status": "healthy"}', delay: 0 },
+  { text: "", delay: 0 },
+  { text: '@app.post("/api/v1/users")', delay: 0 },
+  { text: "async def create_user(data: UserSchema):", delay: 0 },
+  { text: "    user = await UserService.create(data)", delay: 0 },
+  { text: "    return user", delay: 0 },
+];
+
+function highlightCode(text: string) {
+  if (!text) return <>&nbsp;</>;
+
+  const keywords = ["from", "import", "async", "def", "return", "await"];
+  const decorators = ["@app"];
+  const builtins = ["FastAPI", "create_engine", "UserSchema", "UserService"];
+
+  if (text.trimStart().startsWith("#"))
+    return <span className="text-[#4a4a55]">{text}</span>;
+
+  const parts = text.split(/("[^"]*"|'[^']*'|\s+)/g).filter(Boolean);
+  return parts.map((token, i) => {
+    const trimmed = token.trim();
+    if (!trimmed) return <span key={i}>{token}</span>;
+    if (keywords.includes(trimmed))
+      return <span key={i} className="text-accent-purple">{token}</span>;
+    if (trimmed.startsWith("@"))
+      return <span key={i} className="text-accent-blue">{token}</span>;
+    if (builtins.includes(trimmed.split(".")[0]) || builtins.includes(trimmed))
+      return <span key={i} className="text-brand-light">{token}</span>;
+    if (trimmed.startsWith('"') || trimmed.startsWith("'"))
+      return <span key={i} className="text-[#e9c46a]">{token}</span>;
+    if (["fastapi", "sqlalchemy"].includes(trimmed))
+      return <span key={i} className="text-brand-light">{token}</span>;
+    if (trimmed === "=" || trimmed === ":")
+      return <span key={i} className="text-brand-light">{token}</span>;
+    return <span key={i} className="text-[#f0f0f3]">{token}</span>;
+  });
+}
+
+function CodeTyping() {
+  const [displayedLines, setDisplayedLines] = useState<string[]>([]);
+  const [currentLine, setCurrentLine] = useState(0);
+  const [currentChar, setCurrentChar] = useState(0);
+  const [isTyping, setIsTyping] = useState(true);
+
+  const resetAndRestart = useCallback(() => {
+    setDisplayedLines([]);
+    setCurrentLine(0);
+    setCurrentChar(0);
+    setIsTyping(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isTyping) {
+      const timeout = setTimeout(resetAndRestart, 4000);
+      return () => clearTimeout(timeout);
+    }
+
+    if (currentLine >= codeLines.length) {
+      setIsTyping(false);
+      return;
+    }
+
+    const line = codeLines[currentLine].text;
+
+    if (line === "") {
+      const timeout = setTimeout(() => {
+        setDisplayedLines(prev => [...prev, ""]);
+        setCurrentLine(prev => prev + 1);
+        setCurrentChar(0);
+      }, 100);
+      return () => clearTimeout(timeout);
+    }
+
+    if (currentChar <= line.length) {
+      const speed = 25 + Math.random() * 35;
+      const timeout = setTimeout(() => {
+        if (currentChar === line.length) {
+          setDisplayedLines(prev => [...prev, line]);
+          setCurrentLine(prev => prev + 1);
+          setCurrentChar(0);
+        } else {
+          setCurrentChar(prev => prev + 1);
+        }
+      }, currentChar === 0 ? 150 : speed);
+      return () => clearTimeout(timeout);
+    }
+  }, [currentLine, currentChar, isTyping, resetAndRestart]);
+
+  const typingLine = currentLine < codeLines.length ? codeLines[currentLine].text : "";
+
+  return (
+    <div className="p-6 font-mono text-[13px] leading-[1.8] relative min-h-[280px]">
+      <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-brand/[0.02] to-transparent pointer-events-none" />
+      {displayedLines.map((line, i) => (
+        <div key={i} className={line === "" ? "h-[1.8em]" : ""}>
+          {line ? highlightCode(line) : null}
+        </div>
+      ))}
+      {isTyping && currentLine < codeLines.length && typingLine !== "" && (
+        <div>
+          {highlightCode(typingLine.slice(0, currentChar))}
+          <motion.span
+            animate={{ opacity: [1, 0] }}
+            transition={{ duration: 0.6, repeat: Infinity }}
+            className="text-brand-light"
+          >
+            |
+          </motion.span>
+        </div>
+      )}
+    </div>
+  );
+}
 
 const roles = [
   "Learning Python",
@@ -143,20 +266,7 @@ export default function Hero() {
                 <div className="w-3 h-3 rounded-full bg-[#28c840]" />
                 <span className="ml-4 text-xs font-mono tracking-wide" style={{ color: "var(--text-muted)" }}>~/backend/main.py</span>
               </div>
-              <div className="p-6 font-mono text-[13px] leading-[1.8] relative">
-                <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-brand/[0.02] to-transparent pointer-events-none" />
-                <div><span className="text-accent-purple">from</span> <span className="text-brand-light">fastapi</span> <span className="text-accent-purple">import</span> <span className="text-[#f0f0f3]">FastAPI</span></div>
-                <div><span className="text-accent-purple">from</span> <span className="text-brand-light">sqlalchemy</span> <span className="text-accent-purple">import</span> <span className="text-[#f0f0f3]">create_engine</span></div>
-                <div className="mt-4"><span className="text-[#4a4a55]"># Initialize production app</span></div>
-                <div><span className="text-[#f0f0f3]">app</span> <span className="text-brand-light">=</span> <span className="text-brand-light">FastAPI</span><span className="text-[#f0f0f3]">(</span><span className="text-[#28c840]">title</span><span className="text-brand-light">=</span><span className="text-[#e9c46a]">&quot;Production API&quot;</span><span className="text-[#f0f0f3]">)</span></div>
-                <div className="mt-4"><span className="text-accent-blue">@app</span><span className="text-[#f0f0f3]">.</span><span className="text-accent-blue">get</span><span className="text-[#f0f0f3]">(</span><span className="text-[#e9c46a]">&quot;/api/v1/health&quot;</span><span className="text-[#f0f0f3]">)</span></div>
-                <div><span className="text-accent-purple">async def</span> <span className="text-brand-light">health_check</span><span className="text-[#f0f0f3]">():</span></div>
-                <div className="pl-6"><span className="text-accent-purple">return</span> <span className="text-[#f0f0f3]">{"{"}</span><span className="text-[#e9c46a]">&quot;status&quot;</span><span className="text-[#f0f0f3]">: </span><span className="text-[#e9c46a]">&quot;healthy&quot;</span><span className="text-[#f0f0f3]">{"}"}</span></div>
-                <div className="mt-4"><span className="text-accent-blue">@app</span><span className="text-[#f0f0f3]">.</span><span className="text-accent-blue">post</span><span className="text-[#f0f0f3]">(</span><span className="text-[#e9c46a]">&quot;/api/v1/users&quot;</span><span className="text-[#f0f0f3]">)</span></div>
-                <div><span className="text-accent-purple">async def</span> <span className="text-brand-light">create_user</span><span className="text-[#f0f0f3]">(</span><span className="text-[#28c840]">data</span><span className="text-[#f0f0f3]">: </span><span className="text-brand-light">UserSchema</span><span className="text-[#f0f0f3]">):</span></div>
-                <div className="pl-6"><span className="text-[#f0f0f3]">user</span> <span className="text-brand-light">=</span> <span className="text-accent-purple">await</span> <span className="text-[#f0f0f3]">UserService.</span><span className="text-brand-light">create</span><span className="text-[#f0f0f3]">(data)</span></div>
-                <div className="pl-6"><span className="text-accent-purple">return</span> <span className="text-[#f0f0f3]">user</span></div>
-              </div>
+              <CodeTyping />
             </div>
 
             <motion.div className="absolute -bottom-4 -left-4 glass glow-border rounded-xl px-4 py-2.5 font-mono text-xs" animate={{ y: [0, -8, 0] }} transition={{ duration: 3, repeat: Infinity }}>
