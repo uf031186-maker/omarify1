@@ -42,10 +42,11 @@ export default function Navbar() {
         scrolled ? "shadow-[0_1px_10px_rgba(0,0,0,0.25)]" : ""
       }`}
       style={{
-        background: "rgba(13, 56, 51, 0.92)",
-        backdropFilter: "blur(20px) saturate(180%)",
-        WebkitBackdropFilter: "blur(20px) saturate(180%)",
-        borderBottom: "1px solid rgba(242, 247, 242, 0.1)",
+        background: "rgba(13, 56, 51, 0.55)",
+        backdropFilter: "blur(24px) saturate(180%)",
+        WebkitBackdropFilter: "blur(24px) saturate(180%)",
+        borderBottom: "1px solid rgba(242, 247, 242, 0.14)",
+        boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.08)",
       }}
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-8">
