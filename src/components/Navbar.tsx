@@ -1,49 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-
-const topBarMessages = [
-  "I love to be a programmer 💻",
-  "Building the future with Python 🐍",
-  "Learning AI, one day at a time 🤖",
-  "Code. Learn. Repeat. 🚀",
-];
-
-function TopBar() {
-  const [msgIndex, setMsgIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setMsgIndex((prev) => (prev + 1) % topBarMessages.length);
-    }, 3500);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div
-      className="relative flex items-center justify-center h-8 overflow-hidden"
-      style={{
-        background: "linear-gradient(90deg, rgba(20,168,0,0.12), rgba(145,229,100,0.1), rgba(20,168,0,0.12))",
-        borderBottom: "1px solid var(--border-subtle)",
-      }}
-    >
-      <AnimatePresence mode="wait">
-        <motion.span
-          key={msgIndex}
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="text-[11px] sm:text-xs font-mono tracking-[0.08em]"
-          style={{ color: "var(--text-accent)" }}
-        >
-          {topBarMessages[msgIndex]}
-        </motion.span>
-      </AnimatePresence>
-    </div>
-  );
-}
+import { motion } from "framer-motion";
 
 const navLinks = [
   { name: "About", href: "#about" },
@@ -71,7 +29,6 @@ export default function Navbar() {
         scrolled ? "glass glow-sm" : "bg-transparent"
       }`}
     >
-      <TopBar />
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-10">
         <div className="flex items-center justify-between gap-3 h-14 sm:h-[72px]">
           <a href="#" className="text-lg sm:text-xl font-heading font-bold tracking-[-0.02em] shrink-0" style={{ color: "var(--text-primary)" }}>

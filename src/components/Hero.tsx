@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const codeLines = [
   { text: "from fastapi import FastAPI", delay: 0 },
@@ -126,13 +126,6 @@ function CodeTyping() {
   );
 }
 
-const roles = [
-  "Learning Python",
-  "Building Projects",
-  "Exploring AI",
-  "Open to Opportunities",
-];
-
 const codeRainChars = [
   "def", "async", "await", "import", "class", "return", "yield",
   "try", "except", "with", "for", "if", "else", "lambda",
@@ -151,15 +144,6 @@ const rainDurations = [
 ];
 
 export default function Hero() {
-  const [roleIndex, setRoleIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setRoleIndex((prev) => (prev + 1) % roles.length);
-    }, 2500);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section className="relative pb-10 pt-24 sm:min-h-svh sm:pb-0 sm:pt-0 flex items-start sm:items-center overflow-hidden">
       <div className="absolute inset-0 transition-colors duration-300" style={{ background: "var(--bg-primary)" }} />
@@ -243,19 +227,8 @@ export default function Hero() {
             </h1>
 
             <p className="text-[15px] sm:text-lg mb-8 max-w-lg leading-[1.75] font-normal" style={{ color: "var(--text-muted)" }}>
-              I&apos;m learning Python, AI, and backend development. Give me a chance — if my work isn&apos;t good enough, you don&apos;t have to pay me.
+              I build Python automation, backend APIs, and AI-powered tools. Give me a chance — if my work isn&apos;t good enough, you don&apos;t have to pay me.
             </p>
-
-            <div className="h-9 mb-10 flex items-center gap-3 px-4 py-2 rounded-lg w-fit" style={{ background: "var(--bg-input)", border: "1px solid var(--input-border)" }}>
-              <span className="text-sm font-mono" style={{ color: "var(--text-accent)", opacity: 0.5 }}>$</span>
-              <AnimatePresence mode="wait">
-                <motion.span key={roleIndex} initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -20, opacity: 0 }} transition={{ duration: 0.3 }} className="font-mono text-sm tracking-wide" style={{ color: "var(--text-accent)" }}>
-                  {roles[roleIndex]}
-                </motion.span>
-              </AnimatePresence>
-              <motion.span animate={{ opacity: [1, 0] }} transition={{ duration: 0.8, repeat: Infinity }} className="text-sm" style={{ color: "var(--text-accent)" }}>█</motion.span>
-            </div>
-
           </motion.div>
 
           <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="hidden lg:block relative">
