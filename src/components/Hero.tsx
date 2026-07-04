@@ -4,77 +4,89 @@ import { useEffect, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 
 const codeLines = [
-  { text: "from fastapi import FastAPI", delay: 0 },
-  { text: "from sqlalchemy import create_engine", delay: 0 },
-  { text: "", delay: 0 },
-  { text: "# Initialize production app", delay: 0 },
-  { text: 'app = FastAPI(title="Production API")', delay: 0 },
-  { text: "", delay: 0 },
-  { text: '@app.get("/api/v1/health")', delay: 0 },
-  { text: "async def health_check():", delay: 0 },
-  { text: '    return {"status": "healthy"}', delay: 0 },
-  { text: "", delay: 0 },
-  { text: '@app.post("/api/v1/users")', delay: 0 },
-  { text: "async def create_user(data: UserSchema):", delay: 0 },
-  { text: "    user = await UserService.create(data)", delay: 0 },
-  { text: "    return user", delay: 0 },
+  'import { Hero, Services, Contact } from "@/components";',
+  "",
+  "export default function Home() {",
+  "  return (",
+  '    <main className="landing">',
+  '      <Hero title="Your Business" />',
+  "      <Services items={services} />",
+  '      <Contact cta="Start today" />',
+  "    </main>",
+  "  );",
+  "}",
+];
+
+const deploySteps = [
+  { text: "$ npm run build", tone: "prompt" },
+  { text: "✓ Compiled successfully", tone: "ok" },
+  { text: "✓ Optimized 12 routes", tone: "ok" },
+  { text: "$ vercel deploy --prod", tone: "prompt" },
+  { text: "▲ Deploying to production...", tone: "plain" },
+  { text: "✓ Live at omarify.com", tone: "ok" },
 ];
 
 function highlightCode(text: string) {
   if (!text) return <>&nbsp;</>;
 
-  const keywords = ["from", "import", "async", "def", "return", "await"];
-  const decorators = ["@app"];
-  const builtins = ["FastAPI", "create_engine", "UserSchema", "UserService"];
+  const keywords = ["import", "from", "export", "default", "function", "return"];
 
-  if (text.trimStart().startsWith("#"))
-    return <span className="text-[#6B6870]">{text}</span>;
-
-  const parts = text.split(/("[^"]*"|'[^']*'|\s+)/g).filter(Boolean);
+  const parts = text.split(/("[^"]*"|\s+)/g).filter(Boolean);
   return parts.map((token, i) => {
     const trimmed = token.trim();
     if (!trimmed) return <span key={i}>{token}</span>;
     if (keywords.includes(trimmed))
       return <span key={i} className="text-accent-purple">{token}</span>;
-    if (trimmed.startsWith("@"))
-      return <span key={i} className="text-accent-blue">{token}</span>;
-    if (builtins.includes(trimmed.split(".")[0]) || builtins.includes(trimmed))
-      return <span key={i} className="text-brand-light">{token}</span>;
-    if (trimmed.startsWith('"') || trimmed.startsWith("'"))
+    if (trimmed.startsWith('"'))
       return <span key={i} className="text-[#30d158]">{token}</span>;
-    if (["fastapi", "sqlalchemy"].includes(trimmed))
+    if (trimmed.startsWith("<") || trimmed.startsWith("</") || trimmed === "/>" || trimmed === ">")
       return <span key={i} className="text-brand-light">{token}</span>;
-    if (trimmed === "=" || trimmed === ":")
+    if (trimmed.includes("="))
+      return <span key={i} className="text-accent-blue">{token}</span>;
+    if (/^[A-Z]/.test(trimmed))
       return <span key={i} className="text-brand-light">{token}</span>;
     return <span key={i} className="text-[#F0EDE6]">{token}</span>;
   });
 }
 
 function CodeTyping() {
+  const [phase, setPhase] = useState<"code" | "deploy" | "done">("code");
   const [displayedLines, setDisplayedLines] = useState<string[]>([]);
   const [currentLine, setCurrentLine] = useState(0);
   const [currentChar, setCurrentChar] = useState(0);
-  const [isTyping, setIsTyping] = useState(true);
+  const [deployedSteps, setDeployedSteps] = useState(0);
 
   const resetAndRestart = useCallback(() => {
     setDisplayedLines([]);
     setCurrentLine(0);
     setCurrentChar(0);
-    setIsTyping(true);
+    setDeployedSteps(0);
+    setPhase("code");
   }, []);
 
   useEffect(() => {
-    if (!isTyping) {
+    if (phase === "done") {
       const timeout = setTimeout(resetAndRestart, 4000);
       return () => clearTimeout(timeout);
     }
 
-    if (currentLine >= codeLines.length) {
-      setIsTyping(false);
-      return;
+    if (phase === "deploy") {
+      if (deployedSteps >= deploySteps.length) {
+        const timeout = setTimeout(() => setPhase("done"), 400);
+        return () => clearTimeout(timeout);
+      }
+      const timeout = setTimeout(() => {
+        setDeployedSteps(prev => prev + 1);
+      }, deployedSteps === 0 ? 800 : 550);
+      return () => clearTimeout(timeout);
     }
 
-    const line = codeLines[currentLine].text;
+    if (currentLine >= codeLines.length) {
+      const timeout = setTimeout(() => setPhase("deploy"), 1200);
+      return () => clearTimeout(timeout);
+    }
+
+    const line = codeLines[currentLine];
 
     if (line === "") {
       const timeout = setTimeout(() => {
@@ -98,31 +110,78 @@ function CodeTyping() {
       }, currentChar === 0 ? 150 : speed);
       return () => clearTimeout(timeout);
     }
-  }, [currentLine, currentChar, isTyping, resetAndRestart]);
+  }, [phase, currentLine, currentChar, deployedSteps, resetAndRestart]);
 
-  const typingLine = currentLine < codeLines.length ? codeLines[currentLine].text : "";
+  const typingLine = currentLine < codeLines.length ? codeLines[currentLine] : "";
+  const inTerminal = phase === "deploy" || phase === "done";
 
   return (
-    <div className="p-6 font-mono text-[13px] leading-[1.8] relative min-h-[280px]">
-      <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-brand/[0.02] to-transparent pointer-events-none" />
-      {displayedLines.map((line, i) => (
-        <div key={i} className={line === "" ? "h-[1.8em]" : ""}>
-          {line ? highlightCode(line) : null}
-        </div>
-      ))}
-      {isTyping && currentLine < codeLines.length && typingLine !== "" && (
-        <div>
-          {highlightCode(typingLine.slice(0, currentChar))}
-          <motion.span
-            animate={{ opacity: [1, 0] }}
-            transition={{ duration: 0.6, repeat: Infinity }}
-            className="text-brand-light"
-          >
-            |
-          </motion.span>
-        </div>
-      )}
-    </div>
+    <>
+      <div className="flex items-center gap-2 px-5 py-3.5" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)", background: "rgba(26,29,43,0.4)" }}>
+        <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
+        <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
+        <div className="w-3 h-3 rounded-full bg-[#28c840]" />
+        <span className="ml-4 text-xs font-mono tracking-wide" style={{ color: "var(--text-muted)" }}>
+          {inTerminal ? "deploy — zsh" : "app/page.tsx"}
+        </span>
+      </div>
+      <div className="p-6 font-mono text-[13px] leading-[1.8] relative min-h-[300px]">
+        <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-brand/[0.02] to-transparent pointer-events-none" />
+        {!inTerminal && (
+          <>
+            {displayedLines.map((line, i) => (
+              <div key={i} className={line === "" ? "h-[1.8em]" : "whitespace-pre"}>
+                {line ? highlightCode(line) : null}
+              </div>
+            ))}
+            {currentLine < codeLines.length && typingLine !== "" && (
+              <div className="whitespace-pre">
+                {highlightCode(typingLine.slice(0, currentChar))}
+                <motion.span
+                  animate={{ opacity: [1, 0] }}
+                  transition={{ duration: 0.6, repeat: Infinity }}
+                  className="text-brand-light"
+                >
+                  |
+                </motion.span>
+              </div>
+            )}
+          </>
+        )}
+        {inTerminal && (
+          <>
+            {deploySteps.slice(0, deployedSteps).map((step, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.25 }}
+                className="whitespace-pre"
+                style={{
+                  color:
+                    step.tone === "ok"
+                      ? "#30d158"
+                      : step.tone === "prompt"
+                      ? "#f2f7f2"
+                      : "rgba(242,247,242,0.7)",
+                }}
+              >
+                {step.text}
+              </motion.div>
+            ))}
+            {phase === "deploy" && (
+              <motion.span
+                animate={{ opacity: [1, 0] }}
+                transition={{ duration: 0.6, repeat: Infinity }}
+                className="text-brand-light"
+              >
+                █
+              </motion.span>
+            )}
+          </>
+        )}
+      </div>
+    </>
   );
 }
 
@@ -242,24 +301,19 @@ export default function Hero() {
 
           <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="hidden lg:block relative">
             <div className="rounded-2xl gradient-border glow-md overflow-hidden" style={{ background: "var(--code-bg)" }}>
-              <div className="flex items-center gap-2 px-5 py-3.5" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)", background: "rgba(26,29,43,0.4)" }}>
-                <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
-                <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
-                <div className="w-3 h-3 rounded-full bg-[#28c840]" />
-                <span className="ml-4 text-xs font-mono tracking-wide" style={{ color: "var(--text-muted)" }}>~/backend/main.py</span>
-              </div>
               <CodeTyping />
             </div>
 
             <motion.div className="absolute -bottom-4 -left-4 glass glow-border rounded-xl px-4 py-2.5 font-mono text-xs" animate={{ y: [0, -8, 0] }} transition={{ duration: 3, repeat: Infinity }}>
-              <span className="text-emerald-400">● </span>
-              <span style={{ color: "var(--text-muted)" }}>200 OK</span>
-              <span className="ml-2" style={{ color: "var(--text-accent)", opacity: 0.6 }}>12ms</span>
+              <span className="text-emerald-400">⚡ </span>
+              <span style={{ color: "var(--text-muted)" }}>Performance</span>
+              <span className="ml-2 text-emerald-400">100</span>
             </motion.div>
 
             <motion.div className="absolute -top-3 -right-3 glass glow-border rounded-xl px-4 py-2.5 font-mono text-xs" animate={{ y: [0, -6, 0] }} transition={{ duration: 4, repeat: Infinity, delay: 1 }}>
-              <span className="text-brand-light">⚡</span>
-              <span className="ml-2" style={{ color: "var(--text-muted)" }}>99.9% uptime</span>
+              <span className="text-brand-light">🔍</span>
+              <span className="ml-2" style={{ color: "var(--text-muted)" }}>SEO</span>
+              <span className="ml-2 text-brand-light">100</span>
             </motion.div>
           </motion.div>
         </div>
