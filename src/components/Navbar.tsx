@@ -38,15 +38,14 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-shadow duration-300 ${
-        scrolled ? "shadow-[0_1px_10px_rgba(0,0,0,0.25)]" : ""
-      }`}
+      className="fixed top-0 left-0 right-0 z-50"
       style={{
-        background: "rgba(13, 56, 51, 0.55)",
+        background: scrolled ? "rgba(13, 56, 51, 0.9)" : "rgba(13, 56, 51, 0.55)",
         backdropFilter: "blur(24px) saturate(180%)",
         WebkitBackdropFilter: "blur(24px) saturate(180%)",
         borderBottom: "1px solid rgba(242, 247, 242, 0.14)",
-        boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.08)",
+        boxShadow: scrolled ? "inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 1px 10px rgba(0, 0, 0, 0.2)" : "inset 0 1px 0 rgba(255, 255, 255, 0.08)",
+        transition: "background 0.4s ease, box-shadow 0.4s ease",
       }}
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-8">
