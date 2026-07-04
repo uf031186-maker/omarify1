@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Outfit, Sora } from "next/font/google";
+import { Inter, Lora } from "next/font/google";
 import "./globals.css";
 
-const outfit = Outfit({
+const inter = Inter({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-outfit",
+  variable: "--font-inter",
 });
 
-const sora = Sora({
+const lora = Lora({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-sora",
+  variable: "--font-lora",
 });
 
 export const metadata: Metadata = {
@@ -42,7 +42,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${sora.variable} antialiased`}
+      className={`${inter.variable} ${lora.variable} antialiased`}
     >
       <body className="min-h-screen">{children}</body>
     </html>

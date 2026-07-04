@@ -36,7 +36,7 @@ export default function About() {
   return (
     <section id="about" className="theme-light relative py-12 sm:py-16 lg:py-24">
       <div className="absolute inset-0 transition-colors duration-300" style={{ background: "var(--bg-primary)" }} />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(249,124,17,0.04),transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(20,168,0,0.04),transparent_60%)]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.6 }} className="text-center mb-10 sm:mb-16">
