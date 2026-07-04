@@ -10,6 +10,7 @@ const navLinks = [
   { name: "Projects", href: "#projects" },
   { name: "Services", href: "#services" },
   { name: "Contact", href: "#contact" },
+  { name: "Portal", href: "/portal/login" },
 ];
 
 const sectionIds = ["about", "skills", "projects", "services", "contact"];
