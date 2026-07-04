@@ -48,25 +48,36 @@ export default function Navbar() {
         transition: "background 0.4s ease, box-shadow 0.4s ease",
       }}
     >
-      <div className="max-w-4xl mx-auto px-5 sm:px-8">
-        <div className="flex items-center justify-between gap-4 h-11 sm:h-12 overflow-x-auto no-scrollbar">
-          <a href="#" className="text-[15px] font-bold tracking-[-0.02em] shrink-0" style={{ color: "#f2f7f2" }}>
+      <div className="max-w-6xl mx-auto px-4 sm:px-8">
+        <div className="flex items-center justify-between gap-4 h-14">
+          <a href="#" className="text-[16px] font-bold tracking-[-0.02em] shrink-0" style={{ color: "#f2f7f2" }}>
             Omarify<span style={{ color: "#91e564" }}>.</span>
           </a>
 
-          {navLinks.map((link) => {
-            const isActive = link.href === "#" ? activeSection === "" : activeSection === link.href.slice(1);
-            return (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-[12px] font-normal whitespace-nowrap transition-colors duration-300"
-                style={{ color: isActive ? "#91e564" : "rgba(242, 247, 242, 0.8)" }}
-              >
-                {link.name}
-              </a>
-            );
-          })}
+          <div
+            className="flex items-center gap-0.5 sm:gap-1 rounded-full p-1 overflow-x-auto no-scrollbar"
+            style={{
+              background: "rgba(255, 255, 255, 0.06)",
+              border: "1px solid rgba(242, 247, 242, 0.12)",
+            }}
+          >
+            {navLinks.map((link) => {
+              const isActive = link.href === "#" ? activeSection === "" : activeSection === link.href.slice(1);
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-[12px] font-medium whitespace-nowrap px-3 sm:px-4 py-1.5 rounded-full transition-all duration-300"
+                  style={{
+                    color: isActive ? "#91e564" : "rgba(242, 247, 242, 0.75)",
+                    background: isActive ? "rgba(145, 229, 100, 0.14)" : "transparent",
+                  }}
+                >
+                  {link.name}
+                </a>
+              );
+            })}
+          </div>
         </div>
       </div>
     </motion.nav>
