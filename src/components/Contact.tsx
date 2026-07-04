@@ -52,11 +52,10 @@ export default function Contact() {
             Get in Touch
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 tracking-tight" style={{ color: "var(--text-primary)" }}>
-            <WordReveal words={[{ text: "Let's" }, { text: "Build" }, { text: "Your" }, { text: "Backend", gradient: true }, { text: "System", gradient: true }]} />
+            <WordReveal words={[{ text: "Let's" }, { text: "Build" }, { text: "Something" }, { text: "That", gradient: true }, { text: "Works", gradient: true }]} />
           </h2>
           <p className="mt-4 max-w-xl mx-auto" style={{ color: "var(--text-muted)" }}>
-            Have a project in mind? Let&apos;s discuss how I can help you build
-            a reliable, scalable backend.
+            Your website should be your best-performing employee — working around the clock and bringing in business. Ready to start your project, or just have a question? Reach out and I&apos;ll get back to you within 24 hours.
           </p>
         </motion.div>
 
@@ -114,8 +113,11 @@ export default function Contact() {
                 type="submit"
                 className="btn-submit text-sm sm:text-base"
               >
-                {submitted ? "Message Sent!" : "Send Message"}
+                {submitted ? "Message Sent!" : "Send Me a Message →"}
               </button>
+              <p className="text-xs text-center" style={{ color: "var(--text-muted)" }}>
+                No pressure. No obligations. Just a straightforward conversation about your project.
+              </p>
             </form>
           </motion.div>
 
@@ -175,11 +177,10 @@ export default function Contact() {
             <div className="card rounded-2xl p-5 sm:p-6">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.5)]" />
-                <span className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>Available for projects</span>
+                <span className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>Available for new projects</span>
               </div>
               <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
-                Usually responds within 24 hours. Currently open to backend
-                development projects and full-time opportunities.
+                Usually responds within 24 hours. Working with clients worldwide — location is never a barrier.
               </p>
             </div>
           </motion.div>

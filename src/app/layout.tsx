@@ -15,20 +15,21 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
-  title: "Umar — Aspiring Python & AI Developer | Omarify",
+  title: "Umar — Web Developer | Websites That Work as Hard as Your Business",
   description:
-    "Learning Python, AI, and backend development. Give me a chance — if my work isn't good enough, you don't have to pay me.",
+    "I build fast, modern, custom websites using AI-powered development — so you get a better site, delivered sooner, without cutting corners.",
   keywords: [
-    "Python Learner",
-    "AI Developer",
-    "Backend Development",
-    "Freelancer",
+    "Web Developer",
+    "Custom Websites",
+    "AI-Powered Development",
+    "Business Websites",
+    "Landing Pages",
     "Hire Developer",
   ],
   openGraph: {
-    title: "Umar — Aspiring Python & AI Developer",
+    title: "Umar — Web Developer | Websites That Work",
     description:
-      "Learning Python, AI, and backend development. Ready to work hard and prove myself.",
+      "Fast, modern, custom websites built with AI-powered development. Better sites, delivered sooner, without cutting corners.",
     url: "https://omarify.com",
     type: "website",
   },

@@ -4,10 +4,11 @@ import { motion } from "framer-motion";
 import WordReveal from "./WordReveal";
 
 const services = [
-  { title: "Python Scripts & Automation", description: "I can help automate repetitive tasks, build small scripts, and create tools that save time.", icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg> },
-  { title: "Simple API Projects", description: "Learning to build REST APIs with FastAPI and Flask. Happy to take on beginner-level API projects to practice.", icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg> },
-  { title: "AI & ML Exploration", description: "Exploring AI tools, machine learning basics, and building small AI-powered projects as I learn.", icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg> },
-  { title: "Web Scraping", description: "Can extract data from websites for research, analysis, or any project that needs structured data.", icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg> },
+  { title: "Business Websites", description: "A professional online presence that communicates who you are, what you offer, and why visitors should choose you. Built for speed, clarity, and search visibility.", icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> },
+  { title: "Landing Pages", description: "Focused, conversion-driven pages designed to turn visitors into leads or customers. Every element is placed with purpose — from headline to call-to-action.", icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg> },
+  { title: "E-Commerce Stores", description: "Online stores that make buying easy. Clean product pages, smooth checkout flows, and a backend you can actually manage without calling a developer every week.", icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg> },
+  { title: "Portfolios", description: "Show your best work in a format that loads fast, looks sharp on every device, and lets your projects speak for themselves.", icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg> },
+  { title: "Web Applications", description: "Custom-built tools and platforms tailored to how your business operates. From dashboards to client portals, built for real-world use — not just demos.", icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg> },
 ];
 
 export default function Services() {
@@ -18,12 +19,12 @@ export default function Services() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.6 }} className="text-center mb-14 sm:mb-16">
-          <span className="text-xs font-mono tracking-[0.2em] uppercase" style={{ color: "var(--text-accent)" }}>What I Can Help With</span>
+          <span className="text-xs font-mono tracking-[0.2em] uppercase" style={{ color: "var(--text-accent)" }}>Services</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 tracking-tight" style={{ color: "var(--text-primary)" }}>
-            <WordReveal words={[{ text: "My" }, { text: "Services", gradient: true }]} />
+            <WordReveal words={[{ text: "What" }, { text: "I" }, { text: "Build", gradient: true }]} />
           </h2>
           <p className="mt-4 max-w-2xl mx-auto" style={{ color: "var(--text-muted)" }}>
-            I&apos;m still learning, but I&apos;m ready to take on small projects. No payment required if you&apos;re not satisfied.
+            Every project is custom-built around your brand, your audience, and the outcomes you&apos;re trying to achieve.
           </p>
         </motion.div>
 

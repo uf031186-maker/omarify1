@@ -196,11 +196,11 @@ export default function Hero() {
               style={{ color: "var(--text-accent)" }}
             >
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.6)]" />
-              Open to opportunities
+              Available for new projects
             </motion.div>
 
             <h1 className="text-[2.5rem] sm:text-5xl md:text-[3.5rem] lg:text-6xl xl:text-7xl font-extrabold leading-[1.08] mb-7 tracking-[-0.03em]" style={{ color: "var(--text-primary)" }}>
-              {["Hi,", "I'm", "Umar", "—"].map((word, i) => (
+              {["Websites", "That", "Work", "as", "Hard"].map((word, i) => (
                 <motion.span
                   key={i}
                   initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
@@ -212,12 +212,12 @@ export default function Hero() {
                 </motion.span>
               ))}{" "}
               <br className="sm:hidden" />
-              {["Aspiring", "Python", "&", "AI", "Developer"].map((word, i) => (
+              {["as", "Your", "Business", "Does"].map((word, i) => (
                 <motion.span
                   key={i}
                   initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{ duration: 0.5, delay: 0.9 + i * 0.15 }}
+                  transition={{ duration: 0.5, delay: 1.0 + i * 0.15 }}
                   className="inline-block mr-[0.3em] text-transparent bg-clip-text animate-gradient-shift"
                   style={{ backgroundImage: "linear-gradient(90deg, #1cbe00, #14a800, #91e564, #5bbc2e, #1cbe00)", backgroundSize: "200% 100%" }}
                 >
@@ -227,8 +227,17 @@ export default function Hero() {
             </h1>
 
             <p className="text-[15px] sm:text-lg mb-8 max-w-lg leading-[1.75] font-normal" style={{ color: "var(--text-muted)" }}>
-              I build Python automation, backend APIs, and AI-powered tools. Give me a chance — if my work isn&apos;t good enough, you don&apos;t have to pay me.
+              I build fast, modern, custom websites using AI-powered development — so you get a better site, delivered sooner, without cutting corners.
             </p>
+
+            <div className="flex flex-wrap gap-4">
+              <a href="#contact" className="btn-primary">
+                Get a Free Consultation
+              </a>
+              <a href="#projects" className="btn-outline">
+                See My Work →
+              </a>
+            </div>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="hidden lg:block relative">

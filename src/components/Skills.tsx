@@ -5,30 +5,30 @@ import WordReveal from "./WordReveal";
 
 const skillCategories = [
   {
-    title: "Python & AI",
+    title: "Frontend",
     skills: [
-      { name: "Python", level: "Learning" },
-      { name: "AI / ML Basics", level: "Learning" },
-      { name: "FastAPI", level: "Beginner" },
-      { name: "Flask", level: "Beginner" },
+      { name: "React", level: "Core" },
+      { name: "Next.js", level: "Core" },
+      { name: "Tailwind CSS", level: "Daily" },
+      { name: "TypeScript", level: "Core" },
     ],
   },
   {
-    title: "Backend Basics",
+    title: "Backend",
     skills: [
-      { name: "REST APIs", level: "Learning" },
-      { name: "Authentication", level: "Basics" },
-      { name: "Database Design", level: "Learning" },
-      { name: "Web Scraping", level: "Beginner" },
+      { name: "Node.js", level: "Core" },
+      { name: "Python", level: "Core" },
+      { name: "REST APIs", level: "Daily" },
+      { name: "GraphQL", level: "Available" },
     ],
   },
   {
-    title: "Tools & Platforms",
+    title: "Platforms & AI Tools",
     skills: [
-      { name: "Git & GitHub", level: "Comfortable" },
-      { name: "VS Code", level: "Daily Use" },
-      { name: "Linux Basics", level: "Learning" },
-      { name: "Vercel / Hosting", level: "Beginner" },
+      { name: "WordPress & Shopify", level: "CMS" },
+      { name: "Cloud Hosting & CI/CD", level: "Infra" },
+      { name: "AI Code Generation", level: "Workflow" },
+      { name: "Automated Testing", level: "QA" },
     ],
   },
 ];
@@ -41,12 +41,12 @@ export default function Skills() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.6 }} className="text-center mb-14 sm:mb-16">
-          <span className="text-xs font-mono tracking-[0.2em] uppercase" style={{ color: "var(--text-accent)" }}>What I&apos;m Learning</span>
+          <span className="text-xs font-mono tracking-[0.2em] uppercase" style={{ color: "var(--text-accent)" }}>Technologies I Use</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 tracking-tight" style={{ color: "var(--text-primary)" }}>
-            <WordReveal words={[{ text: "Tools" }, { text: "&" }, { text: "Technologies", gradient: true }]} />
+            <WordReveal words={[{ text: "Built" }, { text: "With" }, { text: "Modern,", gradient: true }, { text: "Reliable", gradient: true }, { text: "Tools", gradient: true }]} />
           </h2>
           <p className="mt-4 max-w-2xl mx-auto" style={{ color: "var(--text-muted)" }}>
-            Currently learning — getting better every day. These are the tools I&apos;m working with.
+            I choose technologies based on what&apos;s right for your project — not what&apos;s trending. Every stack decision serves your business goals, performance, and long-term maintainability.
           </p>
         </motion.div>
 

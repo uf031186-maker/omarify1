@@ -9,6 +9,8 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageTransition from "@/components/PageTransition";
+import Process from "@/components/Process";
+import FAQ from "@/components/FAQ";
 
 export default function Home() {
   return (
@@ -19,7 +21,9 @@ export default function Home() {
       <Skills />
       <Projects />
       <Services />
+      <Process />
       <WhyHireMe />
+      <FAQ />
       <Contact />
       <Footer />
       <ScrollToTop />

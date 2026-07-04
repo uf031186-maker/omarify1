@@ -16,7 +16,7 @@ export default function Projects() {
             <WordReveal words={[{ text: "Featured" }, { text: "Projects", gradient: true }]} />
           </h2>
           <p className="mt-4 max-w-2xl mx-auto" style={{ color: "var(--text-muted)" }}>
-            I&apos;m building real projects as I learn. Check back soon to see what I&apos;ve been working on.
+            A look at recent projects — each one planned, built, and refined to meet specific business goals. New work is on the way.
           </p>
         </motion.div>
 

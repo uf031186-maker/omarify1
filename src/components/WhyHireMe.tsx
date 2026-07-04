@@ -4,12 +4,12 @@ import { motion } from "framer-motion";
 import WordReveal from "./WordReveal";
 
 const reasons = [
-  { title: "Zero Risk — Pay Only If Satisfied", description: "If my work doesn't meet your expectations, you don't have to pay me. Simple as that." },
-  { title: "Hungry to Learn & Prove Myself", description: "I'm not here for easy tasks. Give me a challenge and watch me grow into it." },
-  { title: "Available 24/7", description: "I'm flexible with time zones and always reachable. Your project is my priority." },
-  { title: "AI & Python Skills Growing Fast", description: "Currently learning Python, AI, automation, and backend — building real projects every day." },
-  { title: "Honest About My Level", description: "I won't pretend to know what I don't. But I'll work twice as hard to learn what's needed." },
-  { title: "Clear Communication", description: "Regular updates, no ghosting, and straightforward discussions about progress." },
+  { title: "AI-Powered Development", description: "I use AI tools throughout the development process — not as a gimmick, but as a way to write cleaner code, catch issues earlier, and move faster without sacrificing quality." },
+  { title: "Custom-Built for Your Goals", description: "Your website isn't based on a theme someone else is also using. It's designed and developed around your brand, your audience, and the outcomes you're trying to achieve." },
+  { title: "Performance-First Approach", description: "Speed matters — for user experience and for search rankings. Every site I build is optimized for fast load times, responsive layouts, and clean, efficient code." },
+  { title: "Clear Communication, No Surprises", description: "You'll always know where your project stands. I keep the process straightforward, explain decisions in plain language, and deliver on the timeline we agree to." },
+  { title: "Lower Long-Term Costs", description: "Clean, well-structured code is easier to maintain and update. You won't be paying to fix problems that shouldn't have existed in the first place." },
+  { title: "A Real Competitive Edge", description: "Most businesses in your market are running on slow, outdated websites. Yours won't be one of them." },
 ];
 
 export default function WhyHireMe() {
@@ -20,9 +20,9 @@ export default function WhyHireMe() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.6 }} className="text-center mb-14 sm:mb-16">
-          <span className="text-xs font-mono tracking-[0.2em] uppercase" style={{ color: "var(--text-accent)" }}>Why Work With Me</span>
+          <span className="text-xs font-mono tracking-[0.2em] uppercase" style={{ color: "var(--text-accent)" }}>Why Choose Me</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 tracking-tight" style={{ color: "var(--text-primary)" }}>
-            <WordReveal words={[{ text: "Why" }, { text: "Give" }, { text: "Me" }, { text: "a" }, { text: "Chance?", gradient: true }]} />
+            <WordReveal words={[{ text: "What" }, { text: "Sets" }, { text: "My" }, { text: "Work" }, { text: "Apart", gradient: true }]} />
           </h2>
         </motion.div>
 
