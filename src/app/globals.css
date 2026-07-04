@@ -312,6 +312,14 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
 }
 
+.nav-link-active {
+  font-weight: 600;
+}
+
+.nav-link-active::after {
+  width: 100%;
+}
+
 .skill-pill {
   display: flex;
   align-items: center;

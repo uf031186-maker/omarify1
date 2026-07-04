@@ -12,11 +12,23 @@ const navLinks = [
   { name: "Contact", href: "#contact" },
 ];
 
+const sectionIds = ["about", "skills", "projects", "services", "contact"];
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 50);
+      let current = "";
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= 120) current = id;
+      }
+      setActiveSection(current);
+    };
+    onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -37,16 +49,19 @@ export default function Navbar() {
           </a>
 
           <div className="flex items-center gap-4 sm:gap-8 overflow-x-auto no-scrollbar">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="nav-link text-[11px] sm:text-[12px] uppercase tracking-[0.1em] sm:tracking-[0.15em] font-medium hover:text-brand-light whitespace-nowrap"
-                style={{ color: "var(--text-muted)" }}
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = link.href === "#" ? activeSection === "" : activeSection === link.href.slice(1);
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className={`nav-link text-[11px] sm:text-[12px] uppercase tracking-[0.1em] sm:tracking-[0.15em] font-medium hover:text-brand-light whitespace-nowrap ${isActive ? "nav-link-active" : ""}`}
+                  style={{ color: isActive ? "var(--text-accent)" : "var(--text-muted)" }}
+                >
+                  {link.name}
+                </a>
+              );
+            })}
             <a
               href="#contact"
               className="btn-outline !py-2 !px-4 sm:!py-2.5 sm:!px-7 hidden sm:inline-flex whitespace-nowrap"
