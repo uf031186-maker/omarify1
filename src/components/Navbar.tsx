@@ -62,12 +62,6 @@ export default function Navbar() {
                 </a>
               );
             })}
-            <a
-              href="#contact"
-              className="btn-outline !py-2 !px-4 sm:!py-2.5 sm:!px-7 hidden sm:inline-flex whitespace-nowrap"
-            >
-              Get in Touch
-            </a>
           </div>
         </div>
       </div>

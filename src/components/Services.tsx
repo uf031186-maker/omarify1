@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import WordReveal from "./WordReveal";
 
 const services = [
   { title: "Python Scripts & Automation", description: "I can help automate repetitive tasks, build small scripts, and create tools that save time.", icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg> },
@@ -19,8 +20,7 @@ export default function Services() {
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.6 }} className="text-center mb-14 sm:mb-16">
           <span className="text-xs font-mono tracking-[0.2em] uppercase" style={{ color: "var(--text-accent)" }}>What I Can Help With</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 tracking-tight" style={{ color: "var(--text-primary)" }}>
-            My{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent-purple">Services</span>
+            <WordReveal words={[{ text: "My" }, { text: "Services", gradient: true }]} />
           </h2>
           <p className="mt-4 max-w-2xl mx-auto" style={{ color: "var(--text-muted)" }}>
             I&apos;m still learning, but I&apos;m ready to take on small projects. No payment required if you&apos;re not satisfied.

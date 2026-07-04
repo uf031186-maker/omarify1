@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState, type FormEvent } from "react";
+import WordReveal from "./WordReveal";
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -51,10 +52,7 @@ export default function Contact() {
             Get in Touch
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 tracking-tight" style={{ color: "var(--text-primary)" }}>
-            Let&apos;s Build Your{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent-purple">
-              Backend System
-            </span>
+            <WordReveal words={[{ text: "Let's" }, { text: "Build" }, { text: "Your" }, { text: "Backend", gradient: true }, { text: "System", gradient: true }]} />
           </h2>
           <p className="mt-4 max-w-xl mx-auto" style={{ color: "var(--text-muted)" }}>
             Have a project in mind? Let&apos;s discuss how I can help you build

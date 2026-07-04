@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import WordReveal from "./WordReveal";
 
 const skillCategories = [
   {
@@ -42,8 +43,7 @@ export default function Skills() {
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.6 }} className="text-center mb-14 sm:mb-16">
           <span className="text-xs font-mono tracking-[0.2em] uppercase" style={{ color: "var(--text-accent)" }}>What I&apos;m Learning</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 tracking-tight" style={{ color: "var(--text-primary)" }}>
-            Tools &{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent-purple">Technologies</span>
+            <WordReveal words={[{ text: "Tools" }, { text: "&" }, { text: "Technologies", gradient: true }]} />
           </h2>
           <p className="mt-4 max-w-2xl mx-auto" style={{ color: "var(--text-muted)" }}>
             Currently learning — getting better every day. These are the tools I&apos;m working with.

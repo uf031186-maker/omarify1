@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import CountUp from "./CountUp";
+import WordReveal from "./WordReveal";
 
 const strengths = [
   {
@@ -42,8 +44,15 @@ export default function About() {
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.6 }} className="text-center mb-10 sm:mb-16">
           <span className="text-xs font-mono tracking-[0.2em] uppercase" style={{ color: "var(--text-accent)" }}>About Me</span>
           <h2 className="text-[1.75rem] sm:text-4xl lg:text-5xl font-extrabold mt-4 tracking-[-0.03em]" style={{ color: "var(--text-primary)" }}>
-            Learning Every Day.{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent-blue">Growing Fast.</span>
+            <WordReveal
+              words={[
+                { text: "Learning" },
+                { text: "Every" },
+                { text: "Day." },
+                { text: "Growing", gradient: true },
+                { text: "Fast.", gradient: true },
+              ]}
+            />
           </h2>
         </motion.div>
 
@@ -62,16 +71,24 @@ export default function About() {
             </p>
 
             <div className="flex items-center gap-8 sm:gap-10">
-              {[
-                { value: "100%", label: "Dedication" },
-                { value: "24/7", label: "Availability" },
-                { value: "0", label: "Excuses" },
-              ].map((stat, i) => (
-                <div key={i} className="text-center">
-                  <div className="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-brand-light to-brand tracking-[-0.02em]">{stat.value}</div>
-                  <div className="text-[10px] uppercase tracking-[0.2em] font-medium mt-2" style={{ color: "var(--text-muted)" }}>{stat.label}</div>
+              <div className="text-center">
+                <div className="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-brand-light to-brand tracking-[-0.02em]">
+                  <CountUp to={100} suffix="%" />
                 </div>
-              ))}
+                <div className="text-[10px] uppercase tracking-[0.2em] font-medium mt-2" style={{ color: "var(--text-muted)" }}>Dedication</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-brand-light to-brand tracking-[-0.02em]">
+                  <CountUp to={24} />/<CountUp to={7} />
+                </div>
+                <div className="text-[10px] uppercase tracking-[0.2em] font-medium mt-2" style={{ color: "var(--text-muted)" }}>Availability</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-brand-light to-brand tracking-[-0.02em]">
+                  0
+                </div>
+                <div className="text-[10px] uppercase tracking-[0.2em] font-medium mt-2" style={{ color: "var(--text-muted)" }}>Excuses</div>
+              </div>
             </div>
           </motion.div>
 

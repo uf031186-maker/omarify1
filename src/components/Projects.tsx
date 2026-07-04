@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import WordReveal from "./WordReveal";
 
 export default function Projects() {
   return (
@@ -12,8 +13,7 @@ export default function Projects() {
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.6 }} className="text-center mb-10 sm:mb-16">
           <span className="text-xs font-mono tracking-[0.2em] uppercase" style={{ color: "var(--text-accent)" }}>Portfolio</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 tracking-tight" style={{ color: "var(--text-primary)" }}>
-            Featured{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent-purple">Projects</span>
+            <WordReveal words={[{ text: "Featured" }, { text: "Projects", gradient: true }]} />
           </h2>
           <p className="mt-4 max-w-2xl mx-auto" style={{ color: "var(--text-muted)" }}>
             I&apos;m building real projects as I learn. Check back soon to see what I&apos;ve been working on.

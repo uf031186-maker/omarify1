@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import WordReveal from "./WordReveal";
 
 const reasons = [
   { title: "Zero Risk — Pay Only If Satisfied", description: "If my work doesn't meet your expectations, you don't have to pay me. Simple as that." },
@@ -21,8 +22,7 @@ export default function WhyHireMe() {
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.6 }} className="text-center mb-14 sm:mb-16">
           <span className="text-xs font-mono tracking-[0.2em] uppercase" style={{ color: "var(--text-accent)" }}>Why Work With Me</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 tracking-tight" style={{ color: "var(--text-primary)" }}>
-            Why Give Me a{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent-blue">Chance?</span>
+            <WordReveal words={[{ text: "Why" }, { text: "Give" }, { text: "Me" }, { text: "a" }, { text: "Chance?", gradient: true }]} />
           </h2>
         </motion.div>
 
