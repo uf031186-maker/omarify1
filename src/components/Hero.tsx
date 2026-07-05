@@ -66,7 +66,7 @@ export default function Hero() {
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
             <span className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full glass glow-border text-xs mb-8 tracking-wider uppercase" style={{ color: "var(--text-accent)" }}>
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.6)]" />
-              Trusted by 2,000+ small businesses
+              Trusted by businesses
             </span>
           </motion.div>
 
