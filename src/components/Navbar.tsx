@@ -55,6 +55,14 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (link.href === "#") {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  } else {
+                    document.querySelector(link.href)?.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
                 className="text-[12px] font-normal whitespace-nowrap transition-colors duration-300 hover:!text-[#f2f7f2]"
                 style={{ color: isActive ? "#91e564" : "rgba(242, 247, 242, 0.8)" }}
               >
