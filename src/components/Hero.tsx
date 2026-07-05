@@ -1,189 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
 import { motion } from "framer-motion";
-
-const codeLines = [
-  'import { Hero, Services, Contact } from "@/components";',
-  "",
-  "export default function Home() {",
-  "  return (",
-  '    <main className="landing">',
-  '      <Hero title="Your Business" />',
-  "      <Services items={services} />",
-  '      <Contact cta="Start today" />',
-  "    </main>",
-  "  );",
-  "}",
-];
-
-const deploySteps = [
-  { text: "$ npm run build", tone: "prompt" },
-  { text: "✓ Compiled successfully", tone: "ok" },
-  { text: "✓ Optimized 12 routes", tone: "ok" },
-  { text: "$ vercel deploy --prod", tone: "prompt" },
-  { text: "▲ Deploying to production...", tone: "plain" },
-  { text: "✓ Live at omarify.com", tone: "ok" },
-];
-
-function highlightCode(text: string) {
-  if (!text) return <>&nbsp;</>;
-
-  const keywords = ["import", "from", "export", "default", "function", "return"];
-
-  const parts = text.split(/("[^"]*"|\s+)/g).filter(Boolean);
-  return parts.map((token, i) => {
-    const trimmed = token.trim();
-    if (!trimmed) return <span key={i}>{token}</span>;
-    if (keywords.includes(trimmed))
-      return <span key={i} className="text-accent-purple">{token}</span>;
-    if (trimmed.startsWith('"'))
-      return <span key={i} className="text-[#30d158]">{token}</span>;
-    if (trimmed.startsWith("<") || trimmed.startsWith("</") || trimmed === "/>" || trimmed === ">")
-      return <span key={i} className="text-brand-light">{token}</span>;
-    if (trimmed.includes("="))
-      return <span key={i} className="text-accent-blue">{token}</span>;
-    if (/^[A-Z]/.test(trimmed))
-      return <span key={i} className="text-brand-light">{token}</span>;
-    return <span key={i} className="text-[#F0EDE6]">{token}</span>;
-  });
-}
-
-function CodeTyping() {
-  const [phase, setPhase] = useState<"code" | "deploy" | "done">("code");
-  const [displayedLines, setDisplayedLines] = useState<string[]>([]);
-  const [currentLine, setCurrentLine] = useState(0);
-  const [currentChar, setCurrentChar] = useState(0);
-  const [deployedSteps, setDeployedSteps] = useState(0);
-
-  const resetAndRestart = useCallback(() => {
-    setDisplayedLines([]);
-    setCurrentLine(0);
-    setCurrentChar(0);
-    setDeployedSteps(0);
-    setPhase("code");
-  }, []);
-
-  useEffect(() => {
-    if (phase === "done") {
-      const timeout = setTimeout(resetAndRestart, 4000);
-      return () => clearTimeout(timeout);
-    }
-
-    if (phase === "deploy") {
-      if (deployedSteps >= deploySteps.length) {
-        const timeout = setTimeout(() => setPhase("done"), 400);
-        return () => clearTimeout(timeout);
-      }
-      const timeout = setTimeout(() => {
-        setDeployedSteps(prev => prev + 1);
-      }, deployedSteps === 0 ? 800 : 550);
-      return () => clearTimeout(timeout);
-    }
-
-    if (currentLine >= codeLines.length) {
-      const timeout = setTimeout(() => setPhase("deploy"), 1200);
-      return () => clearTimeout(timeout);
-    }
-
-    const line = codeLines[currentLine];
-
-    if (line === "") {
-      const timeout = setTimeout(() => {
-        setDisplayedLines(prev => [...prev, ""]);
-        setCurrentLine(prev => prev + 1);
-        setCurrentChar(0);
-      }, 100);
-      return () => clearTimeout(timeout);
-    }
-
-    if (currentChar <= line.length) {
-      const speed = 25 + Math.random() * 35;
-      const timeout = setTimeout(() => {
-        if (currentChar === line.length) {
-          setDisplayedLines(prev => [...prev, line]);
-          setCurrentLine(prev => prev + 1);
-          setCurrentChar(0);
-        } else {
-          setCurrentChar(prev => prev + 1);
-        }
-      }, currentChar === 0 ? 150 : speed);
-      return () => clearTimeout(timeout);
-    }
-  }, [phase, currentLine, currentChar, deployedSteps, resetAndRestart]);
-
-  const typingLine = currentLine < codeLines.length ? codeLines[currentLine] : "";
-  const inTerminal = phase === "deploy" || phase === "done";
-
-  return (
-    <>
-      <div className="flex items-center gap-2 px-5 py-3.5" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)", background: "rgba(26,29,43,0.4)" }}>
-        <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
-        <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
-        <div className="w-3 h-3 rounded-full bg-[#28c840]" />
-        <span className="ml-4 text-xs font-mono tracking-wide" style={{ color: "var(--text-muted)" }}>
-          {inTerminal ? "deploy — zsh" : "app/page.tsx"}
-        </span>
-      </div>
-      <div className="p-6 font-mono text-[13px] leading-[1.8] relative min-h-[300px]">
-        <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-brand/[0.02] to-transparent pointer-events-none" />
-        {!inTerminal && (
-          <>
-            {displayedLines.map((line, i) => (
-              <div key={i} className={line === "" ? "h-[1.8em]" : "whitespace-pre"}>
-                {line ? highlightCode(line) : null}
-              </div>
-            ))}
-            {currentLine < codeLines.length && typingLine !== "" && (
-              <div className="whitespace-pre">
-                {highlightCode(typingLine.slice(0, currentChar))}
-                <motion.span
-                  animate={{ opacity: [1, 0] }}
-                  transition={{ duration: 0.6, repeat: Infinity }}
-                  className="text-brand-light"
-                >
-                  |
-                </motion.span>
-              </div>
-            )}
-          </>
-        )}
-        {inTerminal && (
-          <>
-            {deploySteps.slice(0, deployedSteps).map((step, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 6 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.25 }}
-                className="whitespace-pre"
-                style={{
-                  color:
-                    step.tone === "ok"
-                      ? "#30d158"
-                      : step.tone === "prompt"
-                      ? "#f2f7f2"
-                      : "rgba(242,247,242,0.7)",
-                }}
-              >
-                {step.text}
-              </motion.div>
-            ))}
-            {phase === "deploy" && (
-              <motion.span
-                animate={{ opacity: [1, 0] }}
-                transition={{ duration: 0.6, repeat: Infinity }}
-                className="text-brand-light"
-              >
-                █
-              </motion.span>
-            )}
-          </>
-        )}
-      </div>
-    </>
-  );
-}
 
 const codeRainChars = [
   "def", "async", "await", "import", "class", "return", "yield",
@@ -245,77 +62,53 @@ export default function Hero() {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 w-full sm:py-0">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-          <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full glass glow-border text-xs mb-8 tracking-wider uppercase"
-              style={{ color: "var(--text-accent)" }}
-            >
+        <div className="max-w-3xl mx-auto text-center">
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
+            <span className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full glass glow-border text-xs mb-8 tracking-wider uppercase" style={{ color: "var(--text-accent)" }}>
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.6)]" />
-              Available for new projects
-            </motion.div>
-
-            <h1 className="text-[2.5rem] sm:text-5xl md:text-[3.5rem] lg:text-6xl xl:text-7xl font-extrabold leading-[1.08] mb-7 tracking-[-0.03em]" style={{ color: "var(--text-primary)" }}>
-              {["Websites", "That", "Work", "as", "Hard"].map((word, i) => (
-                <motion.span
-                  key={i}
-                  initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{ duration: 0.5, delay: 0.3 + i * 0.15 }}
-                  className="inline-block mr-[0.3em]"
-                >
-                  {word}
-                </motion.span>
-              ))}{" "}
-              <br className="sm:hidden" />
-              {["as", "Your", "Business", "Does"].map((word, i) => (
-                <motion.span
-                  key={i}
-                  initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{ duration: 0.5, delay: 1.0 + i * 0.15 }}
-                  className="inline-block mr-[0.3em] text-transparent bg-clip-text animate-gradient-shift"
-                  style={{ backgroundImage: "linear-gradient(90deg, #1cbe00, #14a800, #91e564, #5bbc2e, #1cbe00)", backgroundSize: "200% 100%" }}
-                >
-                  {word}
-                </motion.span>
-              ))}
-            </h1>
-
-            <p className="text-[15px] sm:text-lg mb-8 max-w-lg leading-[1.75] font-normal" style={{ color: "var(--text-muted)" }}>
-              I build fast, modern, custom websites using AI-powered development — so you get a better site, delivered sooner, without cutting corners.
-            </p>
-
-            <div className="flex flex-wrap gap-4">
-              <a href="#contact" className="btn-primary">
-                Get a Free Consultation
-              </a>
-              <a href="#projects" className="btn-outline">
-                See My Work →
-              </a>
-            </div>
+              Trusted by 2,000+ small businesses
+            </span>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="hidden lg:block relative">
-            <div className="rounded-2xl gradient-border glow-md overflow-hidden" style={{ background: "var(--code-bg)" }}>
-              <CodeTyping />
-            </div>
+          <h1 className="text-[2.5rem] sm:text-5xl md:text-[3.5rem] lg:text-6xl xl:text-7xl font-extrabold leading-[1.08] mb-7 tracking-[-0.03em]" style={{ color: "var(--text-primary)" }}>
+            {["Templates", "That", "Do", "the"].map((word, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition={{ duration: 0.5, delay: 0.3 + i * 0.15 }}
+                className="inline-block mr-[0.3em]"
+              >
+                {word}
+              </motion.span>
+            ))}{" "}
+            <br className="sm:hidden" />
+            {["Hard", "Work", "for", "You"].map((word, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition={{ duration: 0.5, delay: 1.0 + i * 0.15 }}
+                className="inline-block mr-[0.3em] text-transparent bg-clip-text animate-gradient-shift"
+                style={{ backgroundImage: "linear-gradient(90deg, #1cbe00, #14a800, #91e564, #5bbc2e, #1cbe00)", backgroundSize: "200% 100%" }}
+              >
+                {word}
+              </motion.span>
+            ))}
+          </h1>
 
-            <motion.div className="absolute -bottom-4 -left-4 glass glow-border rounded-xl px-4 py-2.5 font-mono text-xs" animate={{ y: [0, -8, 0] }} transition={{ duration: 3, repeat: Infinity }}>
-              <span className="text-emerald-400">⚡ </span>
-              <span style={{ color: "var(--text-muted)" }}>Performance</span>
-              <span className="ml-2 text-emerald-400">100</span>
-            </motion.div>
+          <p className="text-[15px] sm:text-lg mb-8 max-w-xl mx-auto leading-[1.75] font-normal" style={{ color: "var(--text-muted)" }}>
+            Stop building everything from scratch. Grab a ready-made template, customize it in minutes, and get back to running your business.
+          </p>
 
-            <motion.div className="absolute -top-3 -right-3 glass glow-border rounded-xl px-4 py-2.5 font-mono text-xs" animate={{ y: [0, -6, 0] }} transition={{ duration: 4, repeat: Infinity, delay: 1 }}>
-              <span className="text-brand-light">🔍</span>
-              <span className="ml-2" style={{ color: "var(--text-muted)" }}>SEO</span>
-              <span className="ml-2 text-brand-light">100</span>
-            </motion.div>
-          </motion.div>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a href="#templates" className="btn-primary">
+              Browse Templates
+            </a>
+            <a href="#how-it-works" className="btn-outline">
+              How It Works →
+            </a>
+          </div>
         </div>
       </div>
 

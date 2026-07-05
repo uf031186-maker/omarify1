@@ -5,13 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import WordReveal from "./WordReveal";
 
 const faqs = [
-  { q: "How long does a typical project take?", a: "It depends on scope and complexity, but most websites are delivered within 2–6 weeks. We'll agree on a clear timeline during the planning phase, and I'll keep you updated throughout." },
-  { q: "How much does a website cost?", a: "Pricing varies based on the type of site, number of pages, and features required. I provide a detailed quote after our initial consultation so you know exactly what to expect — no hidden fees." },
-  { q: "Will my website be mobile-friendly?", a: "Every site I build is fully responsive and tested across devices and screen sizes. Your visitors get a great experience whether they're on a phone, tablet, or desktop." },
-  { q: "Do you offer ongoing maintenance or support?", a: "Yes. I offer post-launch support and maintenance packages to keep your site updated, secure, and running smoothly. We can discuss the right option for your needs." },
-  { q: "Will I be able to update the site myself?", a: "If you need a content management system, I'll build one in and walk you through how to use it. For simpler sites, I can handle updates for you or set up a system that lets you make basic changes independently." },
-  { q: "Do you work with clients worldwide?", a: "Absolutely. I work with clients remotely and communicate through video calls, email, and project management tools. Location is never a barrier." },
-  { q: "What if I already have a website and just need improvements?", a: "I can audit your current site, identify what's working and what isn't, and either improve the existing build or recommend a rebuild if that's the better path forward." },
+  { q: "What format are the templates in?", a: "Each product page tells you the exact format. Most templates work with popular tools you already use — no special software needed." },
+  { q: "Can I customize the templates?", a: "Absolutely. Every template is fully editable. Change the colors, fonts, text, layout — make it feel like yours because it is." },
+  { q: "Do I get free updates?", a: "Yes. When a template gets improved, you get the updated version at no extra cost." },
+  { q: "Can I use these for client work?", a: "Yes — you can use them in projects you deliver to clients. You just can't resell the templates themselves as your own product." },
+  { q: "What if a template doesn't work for me?", a: "Reach out and I'll make it right. I want you to actually use what you buy — not leave it sitting in a downloads folder." },
+  { q: "Do you offer refunds?", a: "Because these are digital products, I don't offer automatic refunds. But if something isn't working, message me and we'll figure it out together." },
 ];
 
 export default function FAQ() {
@@ -26,7 +25,7 @@ export default function FAQ() {
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.6 }} className="text-center mb-14 sm:mb-16">
           <span className="text-xs font-mono tracking-[0.2em] uppercase" style={{ color: "var(--text-accent)" }}>FAQ</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 tracking-tight" style={{ color: "var(--text-primary)" }}>
-            <WordReveal words={[{ text: "Frequently" }, { text: "Asked" }, { text: "Questions", gradient: true }]} />
+            <WordReveal words={[{ text: "Questions?" }, { text: "Answered.", gradient: true }]} />
           </h2>
         </motion.div>
 

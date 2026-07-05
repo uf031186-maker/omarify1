@@ -15,21 +15,21 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
-  title: "Umar — Web Developer | Websites That Work as Hard as Your Business",
+  title: "Umar — Premium Templates | Templates That Do the Hard Work for You",
   description:
-    "I build fast, modern, custom websites using AI-powered development — so you get a better site, delivered sooner, without cutting corners.",
+    "Stop building everything from scratch. Grab a ready-made template, customize it in minutes, and get back to running your business.",
   keywords: [
-    "Web Developer",
-    "Custom Websites",
-    "AI-Powered Development",
-    "Business Websites",
-    "Landing Pages",
-    "Hire Developer",
+    "Templates",
+    "Business Templates",
+    "Small Business",
+    "Spreadsheet Templates",
+    "Document Templates",
+    "Creator Tools",
   ],
   openGraph: {
-    title: "Umar — Web Developer | Websites That Work",
+    title: "Umar — Premium Templates for Small Businesses",
     description:
-      "Fast, modern, custom websites built with AI-powered development. Better sites, delivered sooner, without cutting corners.",
+      "Ready-made templates you can customize in minutes. Stop wasting time on busywork.",
     url: "https://omarify.com",
     type: "website",
   },

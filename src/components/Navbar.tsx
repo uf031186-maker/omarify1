@@ -5,15 +5,14 @@ import { motion } from "framer-motion";
 
 const navLinks = [
   { name: "Home", href: "#" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Services", href: "#services" },
+  { name: "Templates", href: "#templates" },
+  { name: "How It Works", href: "#how-it-works" },
+  { name: "FAQ", href: "#faq" },
   { name: "Contact", href: "#contact" },
   { name: "Portal", href: "/portal/login" },
 ];
 
-const sectionIds = ["about", "skills", "projects", "services", "contact"];
+const sectionIds = ["templates", "how-it-works", "faq", "contact"];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
