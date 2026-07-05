@@ -71,7 +71,7 @@ export default function Hero() {
           </motion.div>
 
           <h1 className="text-[2.5rem] sm:text-5xl md:text-[3.5rem] lg:text-6xl xl:text-7xl font-extrabold leading-[1.08] mb-7 tracking-[-0.03em]" style={{ color: "var(--text-primary)" }}>
-            {["Templates", "That", "Do", "the"].map((word, i) => (
+            {["Built", "for", "Businesses"].map((word, i) => (
               <motion.span
                 key={i}
                 initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
@@ -83,12 +83,12 @@ export default function Hero() {
               </motion.span>
             ))}{" "}
             <br className="sm:hidden" />
-            {["Hard", "Work", "for", "You"].map((word, i) => (
+            {["That", "Move", "Fast."].map((word, i) => (
               <motion.span
                 key={i}
                 initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{ duration: 0.5, delay: 1.0 + i * 0.15 }}
+                transition={{ duration: 0.5, delay: 0.8 + i * 0.15 }}
                 className="inline-block mr-[0.3em] text-transparent bg-clip-text animate-gradient-shift"
                 style={{ backgroundImage: "linear-gradient(90deg, #1cbe00, #14a800, #91e564, #5bbc2e, #1cbe00)", backgroundSize: "200% 100%" }}
               >
