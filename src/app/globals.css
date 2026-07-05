@@ -415,3 +415,13 @@ h1, h2, h3, h4, h5, h6 {
   scroll-snap-align: start;
 }
 
+@keyframes heading-glow {
+  0% { text-shadow: none; }
+  30% { text-shadow: 0 0 20px rgba(20, 168, 0, 0.6), 0 0 40px rgba(145, 229, 100, 0.3); }
+  100% { text-shadow: none; }
+}
+
+.heading-glow h2 {
+  animation: heading-glow 1.5s ease-out;
+}
+

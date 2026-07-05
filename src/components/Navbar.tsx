@@ -71,7 +71,12 @@ export default function Navbar() {
                     if (!startTime) startTime = timestamp;
                     const progress = Math.min((timestamp - startTime) / duration, 1);
                     window.scrollTo(0, start + distance * ease(progress));
-                    if (progress < 1) requestAnimationFrame(step);
+                    if (progress < 1) {
+                      requestAnimationFrame(step);
+                    } else if (el) {
+                      el.classList.add("heading-glow");
+                      setTimeout(() => el.classList.remove("heading-glow"), 1500);
+                    }
                   }
                   requestAnimationFrame(step);
                 }}
