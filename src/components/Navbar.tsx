@@ -57,28 +57,16 @@ export default function Navbar() {
                 href={link.href}
                 onClick={(e) => {
                   e.preventDefault();
-                  const el = link.href === "#" ? null : document.querySelector(link.href);
-                  const target = el ? el.getBoundingClientRect().top + window.scrollY - 48 : 0;
-                  const start = window.scrollY;
-                  const distance = target - start;
-                  if (distance === 0) return;
-                  const duration = 600;
-                  let startTime: number | null = null;
-                  function ease(t: number) {
-                    return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
-                  }
-                  function step(timestamp: number) {
-                    if (!startTime) startTime = timestamp;
-                    const progress = Math.min((timestamp - startTime) / duration, 1);
-                    window.scrollTo(0, start + distance * ease(progress));
-                    if (progress < 1) {
-                      requestAnimationFrame(step);
-                    } else if (el) {
+                  if (link.href === "#") {
+                    window.scrollTo(0, 0);
+                  } else {
+                    const el = document.querySelector(link.href) as HTMLElement | null;
+                    if (el) {
+                      el.scrollIntoView();
                       el.classList.add("heading-glow");
                       setTimeout(() => el.classList.remove("heading-glow"), 1500);
                     }
                   }
-                  requestAnimationFrame(step);
                 }}
                 className="text-[12px] font-normal whitespace-nowrap transition-colors duration-300 hover:!text-[#f2f7f2]"
                 style={{ color: isActive ? "#91e564" : "rgba(242, 247, 242, 0.8)" }}
