@@ -77,7 +77,6 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y proximity;
 }
 
 body {
@@ -411,9 +410,6 @@ h1, h2, h3, h4, h5, h6 {
   filter: blur(0px);
 }
 
-.snap-section {
-  scroll-snap-align: start;
-}
 
 @keyframes heading-glow {
   0% { text-shadow: none; }

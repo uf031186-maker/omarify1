@@ -22,7 +22,7 @@ export default function ScrollSection({ children }: { children: React.ReactNode 
   }, []);
 
   return (
-    <div ref={ref} className={`scroll-section snap-section ${visible ? "visible" : ""}`}>
+    <div ref={ref} className={`scroll-section ${visible ? "visible" : ""}`}>
       {children}
     </div>
   );

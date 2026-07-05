@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <PageTransition>
       <Navbar />
-      <div className="snap-section"><Hero /></div>
+      <Hero />
       <ScrollSection><About /></ScrollSection>
       <ScrollSection><Skills /></ScrollSection>
       <ScrollSection><Process /></ScrollSection>
