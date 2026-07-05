@@ -9,7 +9,6 @@ const navLinks = [
   { name: "How It Works", href: "#how-it-works" },
   { name: "FAQ", href: "#faq" },
   { name: "Contact", href: "#contact" },
-  { name: "Portal", href: "/portal/login" },
 ];
 
 const sectionIds = ["templates", "how-it-works", "faq", "contact"];
